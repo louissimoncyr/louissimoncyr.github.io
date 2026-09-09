@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Louis-Simon Cyr, PhD student in mathematics at USC, and a symplectic arXiv tracker." />
+  <meta name="theme-color" content="#f7e1bd" />
+  <title>Louis-Simon Cyr | Mathematics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="tracker-shell">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="site-header">
+    <div class="site-identity">
+      <a class="brand-name" href="#tracker">Louis-Simon Cyr</a>
+      <p class="site-byline">Mathematics PhD student at USC</p>
+    </div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#tracker">Tracker</a>
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+    </nav>
+    <img class="header-tree" src="assets/epinette-tree.png" alt="" aria-hidden="true" />
+  </header>
+
+  <main id="content" class="content">
+    <section id="tracker" class="section tracker-section" aria-labelledby="ai-impact-title">
+      <div class="section-head">
+        <div>
+          <h1 id="ai-impact-title">AI and the publication rate in symplectic geometry</h1>
+          <p id="ai-month-context" class="small-meta" aria-live="polite">Loading the last completed month…</p>
+        </div>
+        <div class="ai-tools">
+          <fieldset id="ai-period-switch" class="ai-period-switch" data-selected="month">
+            <legend class="sr-only">Show comparison by</legend>
+            <span class="ai-period-punctuation" aria-hidden="true">[</span>
+            <input id="ai-period-month" type="radio" name="ai-period" value="month" checked />
+            <label for="ai-period-month">month</label>
+            <span class="ai-period-punctuation" aria-hidden="true">/</span>
+            <input id="ai-period-year" type="radio" name="ai-period" value="year" />
+            <label for="ai-period-year">year</label>
+            <span class="ai-period-punctuation" aria-hidden="true">]</span>
+          </fieldset>
+        </div>
+      </div>
+
+      <div class="card chart-card">
+        <canvas id="ai-impact-chart" height="375" width="900" aria-label="Paper counts in the same completed calendar month across years. The horizontal axis is year and the vertical axis is the number of papers."></canvas>
+      </div>
+
+      <div class="annual-summary">
+        <div class="table-scroll">
+          <table class="annual-table">
+            <caption id="ai-caption">Loading monthly comparison…</caption>
+            <thead>
+              <tr id="ai-years">
+                <th scope="col">Year</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr id="ai-counts">
+                <th id="ai-count-label" scope="row">Papers</th>
+              </tr>
+              <tr id="ai-changes">
+                <th scope="row">Change from prior year</th>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="ai-comparison-note" class="small-meta">Loading same-month changes…</p>
+      </div>
+
+    </section>
+
+    <section id="about" class="section">
+      <div class="section-head">
+        <div>
+          <p class="kicker">About</p>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          <p class="intro-copy">I am a PhD student in mathematics at the University of Southern California in Los Angeles, advised by <a href="https://kylersiegel.xyz/" target="_blank" rel="noreferrer">Kyler Siegel</a>.</p>
+          <p>My current interests are in symplectic and algebraic geometry.</p>
+        </div>
+        <div class="about-side">
+          <figure class="about-photo">
+            <img src="assets/los-angeles-sunset.png" width="1671" height="939" loading="lazy" alt="Sunset over Los Angeles, with the city and distant mountains beneath a cloud-filled sky." />
+          </figure>
+          <aside class="info-card" aria-labelledby="info-heading">
+            <h3 id="info-heading">Info</h3>
+            <ul class="resource-list">
+              <li><a href="assets/louis-simon-cyr-cv.pdf" target="_blank" rel="noreferrer">CV</a></li>
+              <li><a href="mailto:louis.simon.cyr@gmail.com">louis.simon.cyr@gmail.com</a></li>
+              <li><a href="https://drive.google.com/file/d/1OVSDLVvMEL2u3-b03LZloUlfeyTCmoZW/view?usp=sharing" target="_blank" rel="noreferrer">A picture of me</a></li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="work" class="section">
+      <div class="section-head">
+        <div>
+          <h2>Projects</h2>
+        </div>
+      </div>
+
+      <ul class="project-list">
+        <li><span>2025 — </span><a href="assets/master-thesis.pdf" target="_blank" rel="noreferrer">Master’s thesis: Quelques points sur le faisceau des fonctions J-holomorphes</a></li>
+        <li><span>2022 — </span><a href="https://drive.google.com/file/d/1NRxJ53MKYfJJoGFWRD9qn4ThiPgMTPxd/view?usp=sharing" target="_blank" rel="noreferrer">Triangulated Categories and Graphs</a></li>
+        <li><span>2021–2022 — </span><a href="https://drive.google.com/file/d/16qjTidLqMPrWR1WKlIJxBsAmKHN3sGd5/view?usp=sharing" target="_blank" rel="noreferrer">Smooth Manifolds</a></li>
+      </ul>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
