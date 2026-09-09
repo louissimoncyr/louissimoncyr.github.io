@@ -248,9 +248,8 @@ function renderAiComparisonTable(rows, options) {
   const countsRow = document.getElementById("ai-counts");
   const changesRow = document.getElementById("ai-changes");
   const caption = document.getElementById("ai-caption");
-  const countLabel = document.getElementById("ai-count-label");
   const note = document.getElementById("ai-comparison-note");
-  if (!rows.length || !yearsRow || !countsRow || !changesRow || !caption || !countLabel || !note) return;
+  if (!rows.length || !yearsRow || !countsRow || !changesRow || !caption || !note) return;
 
   yearsRow.replaceChildren();
   countsRow.replaceChildren();
@@ -284,7 +283,6 @@ function renderAiComparisonTable(rows, options) {
   });
 
   caption.textContent = options.caption;
-  countLabel.textContent = options.countLabel;
   note.textContent = options.note;
 }
 
