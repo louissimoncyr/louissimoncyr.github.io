@@ -117,6 +117,23 @@
 
   </main>
 
+  <footer aria-label="Site information" style="display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;width:calc(100% - 2rem);max-width:var(--page-width);margin:1rem auto 0;padding:0 0 1rem;font-size:var(--font-normal);">
+    <p style="margin:0;"><time id="site-last-updated" datetime="2026-09-09">Last updated September 9, 2026</time></p>
+    <p style="margin:0;text-align:right;">built with codex spark 5.3</p>
+  </footer>
+
   <script src="app.js?v=20260909-4"></script>
+  <script>
+    const siteUpdated = document.getElementById("site-last-updated");
+    const siteUpdatedDate = new Date(document.lastModified);
+    if (siteUpdated && !Number.isNaN(siteUpdatedDate.getTime())) {
+      siteUpdated.dateTime = siteUpdatedDate.toISOString().slice(0, 10);
+      siteUpdated.textContent = `Last updated ${siteUpdatedDate.toLocaleDateString("en-US", {
+        month: "long",
+        day: "numeric",
+        year: "numeric",
+      })}`;
+    }
+  </script>
 </body>
 </html>
