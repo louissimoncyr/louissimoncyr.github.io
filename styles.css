@@ -453,7 +453,7 @@ canvas {
   margin: 0;
   overflow: hidden;
   border-radius: calc(var(--radius) - 0.2rem);
-  background: #f7e1bd;
+  background: #fff0d8;
 }
 
 .about-photo img {
@@ -471,7 +471,7 @@ canvas {
   left: 0.75rem;
   margin: 0;
   padding: 0.34rem 0.55rem;
-  background: #f7e1bd;
+  background: #fff0d8;
   color: var(--text);
   font-size: var(--font-normal);
   font-weight: 400;
@@ -498,7 +498,7 @@ canvas {
   margin: 0;
   padding: 1.1rem 1.15rem;
   border-radius: calc(var(--radius) - 0.2rem);
-  background: #f7e1bd;
+  background: #fff0d8;
 }
 
 .resource-list,
