@@ -531,7 +531,7 @@ canvas {
 
 .resource-list li + li,
 .project-list li + li {
-  margin-top: 0.2rem;
+  margin-top: 0;
 }
 
 .project-list {
