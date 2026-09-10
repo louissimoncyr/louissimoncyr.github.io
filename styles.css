@@ -453,7 +453,7 @@ canvas {
   margin: 0;
   overflow: hidden;
   border-radius: calc(var(--radius) - 0.2rem);
-  background: var(--surface-deep);
+  background: #fee9c9;
 }
 
 .about-photo img {
