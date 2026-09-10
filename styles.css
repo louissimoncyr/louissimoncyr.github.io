@@ -471,7 +471,7 @@ canvas {
   left: 0.75rem;
   margin: 0;
   padding: 0.34rem 0.55rem;
-  background: var(--surface-deep);
+  background: #fee9c9;
   color: var(--text);
   font-size: var(--font-normal);
   font-weight: 400;
