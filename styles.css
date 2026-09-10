@@ -498,7 +498,7 @@ canvas {
   margin: 0;
   padding: 1.1rem 1.15rem;
   border-radius: calc(var(--radius) - 0.2rem);
-  background: color-mix(in srgb, var(--surface-deep) 49%, var(--surface));
+  background: #fee9c9;
 }
 
 .resource-list,
