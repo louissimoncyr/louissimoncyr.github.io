@@ -319,6 +319,112 @@ h3 {
   letter-spacing: 0;
 }
 
+.ai-disclosure-title {
+  margin-top: 1.5rem;
+}
+
+.ai-disclosure-chart {
+  display: grid;
+  grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr);
+  gap: 1.5rem;
+  align-items: center;
+  margin: 1.25rem 0 0;
+}
+
+.ai-disclosure-pie {
+  width: 100%;
+  aspect-ratio: 1;
+  border: 1px solid var(--text);
+  border-radius: 50%;
+  background: conic-gradient(
+    var(--text) 0 15.3846%,
+    var(--trend) 15.3846% 16.6667%,
+    var(--line) 16.6667% 100%
+  );
+}
+
+.ai-disclosure-legend {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.ai-disclosure-legend li {
+  display: grid;
+  grid-template-columns: 0.9rem minmax(0, 1fr);
+  gap: 0.55rem;
+  align-items: start;
+}
+
+.ai-disclosure-swatch {
+  width: 0.9rem;
+  height: 0.9rem;
+  margin-top: 0.35rem;
+  border: 1px solid var(--text);
+}
+
+.ai-disclosure-swatch.ai-use {
+  background: var(--text);
+}
+
+.ai-disclosure-swatch.no-use {
+  background: var(--trend);
+}
+
+.ai-disclosure-swatch.no-disclosure {
+  background: var(--line);
+}
+
+.ai-data-link {
+  margin: 1rem 0 0;
+}
+
+body.data-shell {
+  --page-width: 64rem;
+}
+
+.ai-audit-counts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: 1.25rem 0;
+}
+
+.ai-audit-counts p {
+  margin: 0;
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--line);
+}
+
+.ai-audit-counts strong {
+  display: block;
+  font-size: var(--font-big);
+}
+
+.ai-evidence-list,
+.ai-id-grid {
+  margin: 0.75rem 0 1.5rem;
+}
+
+.ai-evidence-list li {
+  margin-bottom: 0.65rem;
+}
+
+.ai-id-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.35rem 1rem;
+  padding-left: 1.2rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.ai-method-note {
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
 .table-scroll {
   margin-top: 0.8rem;
   overflow-x: auto;
@@ -589,6 +695,19 @@ canvas {
 
   .ai-tools .small-meta {
     text-align: left;
+  }
+
+  .ai-disclosure-chart,
+  .ai-audit-counts {
+    grid-template-columns: 1fr;
+  }
+
+  .ai-disclosure-pie {
+    max-width: 12rem;
+  }
+
+  .ai-id-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .site-header {
