@@ -2,11 +2,11 @@
   --bg: #f7e1bd;
   --surface: #fff0d8;
   --surface-deep: #f9dcae;
-  --text: #2e2119;
-  --muted: #78614d;
+  --text: #3f3f3f;
+  --muted: var(--text);
   --line: #dfbf8d;
-  --accent: #bd651b;
-  --accent-hover: #93460f;
+  --accent: var(--text);
+  --accent-hover: var(--text);
   --accent-soft: #efbd72;
   --focus: #b85316;
   --trend: #a94c28;
@@ -14,23 +14,9 @@
   --shadow: none;
   --radius: 0.35rem;
   --page-width: 36rem;
+  --font-normal: 1rem;
+  --font-big: 1.5rem;
   font-size: 16px;
-}
-
-:root[data-theme='dark'] {
-  --bg: #2a1b13;
-  --surface: #3c281a;
-  --surface-deep: #4b2e1b;
-  --text: #ffe7c4;
-  --muted: #d6ae7b;
-  --line: #735037;
-  --accent: #ffaf5d;
-  --accent-hover: #ffd09a;
-  --accent-soft: #5c391e;
-  --focus: #ffd09a;
-  --trend: #ff9766;
-  --average: #ffc15a;
-  --shadow: none;
 }
 
 * {
@@ -42,25 +28,26 @@ body {
   min-height: 100vh;
   background: var(--bg);
   color: var(--text);
+  font-size: var(--font-normal);
   line-height: 1.6;
 }
 
 code {
-  font-size: 0.95em;
+  font-size: var(--font-normal);
 }
 
 a {
-  color: var(--accent);
+  color: var(--text);
   text-underline-offset: 3px;
 }
 
 .about-copy .intro-copy a {
-  color: #000;
+  color: var(--text);
   text-decoration: underline;
 }
 
 a:hover {
-  color: var(--accent-hover);
+  color: var(--text);
   text-decoration-thickness: 2px;
 }
 
@@ -74,8 +61,8 @@ a:focus-visible,
   position: absolute;
   left: -999px;
   top: 10px;
-  background: var(--text);
-  color: var(--bg);
+  background: var(--surface-deep);
+  color: var(--text);
   padding: 0.5rem 0.8rem;
   border-radius: 0.4rem;
 }
@@ -115,15 +102,15 @@ a:focus-visible,
   margin: 0;
   color: var(--text);
   text-decoration: none;
-  font-size: clamp(1.35rem, 2.3vw, 1.75rem);
+  font-size: var(--font-big);
   font-weight: 700;
   line-height: 1.1;
 }
 
 .site-byline {
   margin: 0.24rem 0 0;
-  color: var(--muted);
-  font-size: 0.86rem;
+  color: var(--text);
+  font-size: var(--font-normal);
   line-height: 1.25;
 }
 
@@ -151,14 +138,14 @@ a:focus-visible,
 }
 
 .site-nav a {
-  font-size: 0.92rem;
+  font-size: var(--font-normal);
   text-decoration: none;
-  color: var(--muted);
+  color: var(--text);
   font-weight: 400;
 }
 
 .site-nav a:hover {
-  color: #000;
+  color: var(--text);
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 0.2em;
@@ -177,7 +164,7 @@ button.btn {
   border-radius: 0.2rem;
   padding: 0.55rem 0.85rem;
   display: inline-block;
-  font-size: 0.95rem;
+  font-size: var(--font-normal);
   text-decoration: none;
   color: var(--text);
   background: var(--surface);
@@ -262,22 +249,22 @@ button.btn:hover {
 
 .ai-period-switch label {
   padding: 0;
-  color: var(--muted);
+  color: var(--text);
   cursor: pointer;
-  font-size: 0.95rem;
+  font-size: var(--font-normal);
   font-weight: 400;
   text-decoration: none;
 }
 
 .ai-period-switch input:checked + label {
   padding-inline: 0.12em;
-  background: #000;
-  color: #fff;
+  background: var(--line);
+  color: var(--text);
   text-decoration: none;
 }
 
 .ai-period-punctuation {
-  color: var(--muted);
+  color: var(--text);
 }
 
 .ai-period-switch input:focus-visible + label {
@@ -288,7 +275,8 @@ button.btn:hover {
 h1,
 h2,
 h3 {
-  font-weight: 600;
+  font-size: var(--font-big);
+  font-weight: 700;
   line-height: 1.25;
 }
 
@@ -298,26 +286,17 @@ h2 {
   letter-spacing: -0.01em;
 }
 
-h1 {
-  font-size: 1.85rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
 h3 {
   margin-top: 0;
-  font-size: 1.1rem;
 }
 
 .kicker {
   margin: 0;
   text-transform: none;
   letter-spacing: 0;
-  font-size: 0.88rem;
-  color: var(--muted);
-  font-weight: 600;
+  font-size: var(--font-big);
+  color: var(--text);
+  font-weight: 700;
 }
 
 .card {
@@ -336,7 +315,7 @@ h3 {
 }
 
 .annual-summary h2 {
-  font-size: 1.15rem;
+  font-size: var(--font-big);
   letter-spacing: 0;
 }
 
@@ -360,7 +339,7 @@ h3 {
   padding: 0 0 0.65rem;
   color: var(--text);
   text-align: left;
-  font-size: 0.9rem;
+  font-size: var(--font-normal);
   font-weight: 400;
 }
 
@@ -376,7 +355,7 @@ h3 {
 
 .annual-table th {
   color: var(--text);
-  font-weight: 700;
+  font-weight: 400;
 }
 
 .annual-table thead th {
@@ -390,7 +369,7 @@ h3 {
 }
 
 .small-meta {
-  color: var(--muted);
+  color: var(--text);
   margin-top: 0.5rem;
 }
 
@@ -430,13 +409,13 @@ canvas {
 }
 
 .summary dt {
-  color: var(--muted);
+  color: var(--text);
   margin: 0;
 }
 
 .summary dd {
   margin: 0;
-  font-weight: 600;
+  font-weight: 400;
 }
 
 .panel {
@@ -492,10 +471,10 @@ canvas {
   left: 0.75rem;
   margin: 0;
   padding: 0.34rem 0.55rem;
-  background: #000;
-  color: #fff;
-  font-size: 0.85rem;
-  font-weight: 600;
+  background: var(--surface-deep);
+  color: var(--text);
+  font-size: var(--font-normal);
+  font-weight: 400;
   letter-spacing: 0;
   text-transform: none;
 }
@@ -510,7 +489,7 @@ canvas {
 
 .intro-copy {
   margin-top: 0;
-  font-size: 1.08rem;
+  font-size: var(--font-normal);
   line-height: 1.65;
 }
 
@@ -547,7 +526,7 @@ canvas {
 }
 
 .project-list span {
-  color: var(--muted);
+  color: var(--text);
   font-size: inherit;
 }
 
@@ -563,15 +542,15 @@ canvas {
 
 .quote-card blockquote {
   margin: 0;
-  font-size: 1.13rem;
-  font-weight: 650;
+  font-size: var(--font-normal);
+  font-weight: 400;
   line-height: 1.45;
 }
 
 .quote-card figcaption {
   margin-top: 0.8rem;
-  color: var(--muted);
-  font-size: 0.9rem;
+  color: var(--text);
+  font-size: var(--font-normal);
 }
 
 .words-note {

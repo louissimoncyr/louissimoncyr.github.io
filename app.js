@@ -182,7 +182,7 @@ function renderPeriodComparisonChart(canvas, rows, yAxisLabel) {
   ctx.clearRect(0, 0, width, height);
   ctx.fillStyle = cssVar("--surface", "#fff0d8");
   ctx.fillRect(0, 0, width, height);
-  ctx.font = "12px serif";
+  ctx.font = "16px serif";
   ctx.textBaseline = "middle";
 
   for (let i = 0; i <= yTicks; i++) {
@@ -223,7 +223,7 @@ function renderPeriodComparisonChart(canvas, rows, yAxisLabel) {
   ctx.stroke();
 
   ctx.fillStyle = muted;
-  ctx.font = "600 12px serif";
+  ctx.font = "16px serif";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.fillText("Year", (xFrom + xTo) / 2, height - 10);
@@ -425,7 +425,7 @@ function renderTrend(canvas, rows) {
   }
 
   ctx.fillStyle = cssVar("--muted", "#78614d");
-  ctx.font = "12px serif";
+  ctx.font = "16px serif";
   for (let i = 0; i <= 5; i++) {
     const value = maxVal - ((maxVal - minVal) * i) / 5;
     const y = yTo + ((yFrom - yTo) * i) / 5;
