@@ -7,6 +7,11 @@ from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+try:
+    from .check_upcoming_talks import validate_upcoming_talks
+except ImportError:
+    from check_upcoming_talks import validate_upcoming_talks
+
 
 ROOT = Path(__file__).resolve().parents[1]
 IGNORED_PARTS = {".git", ".codex-backups", ".site-preview", ".venv", "outputs"}
@@ -142,6 +147,10 @@ def main() -> int:
                 json.load(handle)
         except (OSError, UnicodeError, json.JSONDecodeError) as exc:
             errors.append(f"{path.relative_to(ROOT)}: invalid JSON: {exc}")
+
+    upcoming_talks = ROOT / "data" / "upcoming-talks.md"
+    for error in validate_upcoming_talks(upcoming_talks):
+        errors.append(f"{upcoming_talks.relative_to(ROOT)}: {error}")
 
     if errors:
         print("Site check failed:")

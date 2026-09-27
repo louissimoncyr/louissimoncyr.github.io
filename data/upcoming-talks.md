@@ -1,0 +1,11 @@
+# Website — upcoming talks
+
+<!--
+This note is public. Add one upcoming talk or paper per top-level bullet.
+Markdown links using http, https, or mailto are supported.
+The site publishes this note after Obsidian Git commits it.
+Only top-level bullets outside this comment are displayed.
+
+Example:
+- October 12, 2026 — [Talk title](https://example.com) — Venue
+-->
