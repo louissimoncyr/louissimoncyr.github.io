@@ -27,7 +27,7 @@ Run `python scripts/check_site.py` before proposing a change. GitHub repeats thi
 
 **Upcoming talks from Obsidian**
 
-Edit `~/Work/Obsidian/Website/upcoming-talks.md` in Obsidian. The note may contain one optional Markdown heading, blank lines, HTML comments, and up to 50 top-level bullet items. Links in the list must use `http`, `https`, or `mailto`. For example:
+Edit `~/Work/Obsidian/Website/upcoming-talks.md` in Obsidian. On this laptop, the same note also appears in the website vault at `~/Documents/website/obsidian-notes/upcoming-talks.md`; that convenience link is excluded from website Git. The note may contain one optional Markdown heading, blank lines, HTML comments, and up to 50 top-level bullet items. Links in the list must use `http`, `https`, or `mailto`. For example:
 
 ```markdown
 # Upcoming talks
