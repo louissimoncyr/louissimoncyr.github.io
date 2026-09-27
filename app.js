@@ -1,7 +1,88 @@
 const DATA_URL = "data/weekly_counts.json";
 const START_YEAR = 2015;
+const UPCOMING_TALKS_URL = "https://raw.githubusercontent.com/louissimoncyr/louissimoncyr.github.io/upcoming-talks-content/data/upcoming-talks.md";
+const UPCOMING_TALKS_FALLBACK_URL = "data/upcoming-talks.md";
 
 let aiImpactData = { monthRows: [] };
+
+function upcomingTalkItems(markdown) {
+  return markdown
+    .replace(/<!--[\s\S]*?(?:-->|$)/g, "")
+    .split(/\r?\n/)
+    .map((line) => line.match(/^[-*+]\s+(.+?)\s*$/))
+    .filter(Boolean)
+    .map((match) => match[1])
+    .slice(0, 50);
+}
+
+function appendUpcomingTalkContent(item, text) {
+  const linkPattern = /\[([^\]]+)]\(([^)]+)\)/g;
+  let cursor = 0;
+  let match;
+
+  while ((match = linkPattern.exec(text)) !== null) {
+    item.append(document.createTextNode(text.slice(cursor, match.index)));
+    try {
+      const url = new URL(match[2]);
+      if (!["http:", "https:", "mailto:"].includes(url.protocol)) throw new Error("Unsupported URL");
+      const link = document.createElement("a");
+      link.href = url.href;
+      link.textContent = match[1];
+      if (["http:", "https:"].includes(url.protocol)) {
+        link.target = "_blank";
+        link.rel = "noreferrer";
+      }
+      item.append(link);
+    } catch (_error) {
+      item.append(document.createTextNode(match[0]));
+    }
+    cursor = linkPattern.lastIndex;
+  }
+
+  item.append(document.createTextNode(text.slice(cursor)));
+}
+
+function renderUpcomingTalks(items) {
+  const list = document.getElementById("upcoming-talks-list");
+  if (!list) return;
+
+  list.replaceChildren();
+  if (!items.length) {
+    const emptyItem = document.createElement("li");
+    emptyItem.className = "upcoming-talks-status";
+    emptyItem.textContent = "Nothing announced yet.";
+    list.append(emptyItem);
+    return;
+  }
+
+  items.forEach((text) => {
+    const item = document.createElement("li");
+    appendUpcomingTalkContent(item, text);
+    list.append(item);
+  });
+}
+
+async function loadUpcomingTalks() {
+  for (const url of [UPCOMING_TALKS_URL, UPCOMING_TALKS_FALLBACK_URL]) {
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 5000);
+    try {
+      const response = await fetch(url, { cache: "no-store", signal: controller.signal });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const markdown = await response.text();
+      if (new TextEncoder().encode(markdown).length > 32 * 1024) {
+        throw new Error("Upcoming-talks file is too large");
+      }
+      renderUpcomingTalks(upcomingTalkItems(markdown));
+      return;
+    } catch (_error) {
+      // Try the checked-in copy if the independently synced content is unavailable.
+    } finally {
+      window.clearTimeout(timeout);
+    }
+  }
+  renderUpcomingTalks([]);
+}
 
 const fallbackData = {
   updated: "2026-09-08T00:00:00+00:00",
@@ -535,3 +616,4 @@ async function run() {
 }
 
 run();
+loadUpcomingTalks();

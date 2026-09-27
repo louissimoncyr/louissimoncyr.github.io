@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f7e1bd" />
   <title>Louis-Simon Cyr</title>
   <link rel="icon" type="image/png" href="assets/quebec-flag-icon-spear.png" />
-  <link rel="stylesheet" href="styles.css?v=20260910-10" />
+  <link rel="stylesheet" href="styles.css?v=20260927-1" />
 </head>
 <body class="tracker-shell">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -121,13 +121,18 @@
           <figure class="about-photo">
             <img src="assets/los-angeles-line-art-transparent.png" width="1671" height="939" loading="lazy" alt="Sunset over Los Angeles, with the city and distant mountains beneath a cloud-filled sky." />
           </figure>
-          <aside class="info-card" aria-labelledby="info-heading">
-            <h3 id="info-heading">Info</h3>
+          <aside class="info-card" aria-label="Contact information and upcoming talks">
             <ul class="resource-list">
               <li><a href="assets/louis-simon-cyr-cv.pdf" target="_blank" rel="noreferrer">CV</a></li>
               <li><a href="mailto:louis.simon.cyr@gmail.com">louis.simon.cyr@gmail.com</a></li>
               <li><a href="https://drive.google.com/file/d/1OVSDLVvMEL2u3-b03LZloUlfeyTCmoZW/view?usp=sharing" target="_blank" rel="noreferrer">A picture of me</a></li>
             </ul>
+            <div class="upcoming-talks">
+              <h3 id="upcoming-talks-heading">upcoming talks</h3>
+              <ul id="upcoming-talks-list" class="upcoming-talks-list" aria-labelledby="upcoming-talks-heading" aria-live="polite">
+                <li class="upcoming-talks-status">Nothing announced yet.</li>
+              </ul>
+            </div>
           </aside>
         </div>
       </div>
@@ -154,7 +159,7 @@
     <p style="margin:0;text-align:right;">AI is used to maintain this website</p>
   </footer>
 
-  <script src="app.js?v=20260909-4"></script>
+  <script src="app.js?v=20260927-1"></script>
   <script>
     const siteUpdated = document.getElementById("site-last-updated");
     const siteUpdatedDate = new Date(document.lastModified);
