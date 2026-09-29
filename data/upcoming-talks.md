@@ -11,4 +11,4 @@ Example:
 -->
 
 - October 1, 2026, 10:00 a.m.–12:00 p.m. — Spectral Flow and the Conley–Zehnder Index — [Math 740: Symplectic Field Theory Seminar](https://michael-huang2001.github.io/sft-seminar/), KAP 427
-- November 17, 2026, 4:00–4:50 p.m. — The Symplectic Camel: Why a Big Ball Cannot Fit into a Thin Cylinder — [USC Graduate Colloquium](https://dornsife.usc.edu/mgsa/graduate-colloquium/), KAP 414
+- November 17, 2026, 4:00–4:50 p.m. — Non-Squeezing: Why a Big Ball Cannot Fit into a Thin Cylinder — [USC Graduate Colloquium](https://dornsife.usc.edu/mgsa/graduate-colloquium/), KAP 414
