@@ -356,6 +356,38 @@ h3 {
   padding-top: 1.15rem;
 }
 
+.monthly-tracker {
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.monthly-tracker[hidden] {
+  display: none;
+}
+
+.monthly-tracker h2 {
+  margin: 0;
+}
+
+.monthly-tracker > .small-meta {
+  margin: 0.2rem 0 0;
+}
+
+.monthly-tracker .chart-card {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.monthly-tracker .annual-summary {
+  margin-top: 0.25rem;
+  padding-top: 0;
+}
+
+.monthly-tracker .table-scroll {
+  margin-top: 0;
+}
+
 .tracker-switch {
   margin: 1.5rem 0 0;
 }

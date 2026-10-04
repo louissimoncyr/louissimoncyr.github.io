@@ -329,11 +329,12 @@ function percentageChange(current, previous) {
 }
 
 function renderAiComparisonTable(rows, options) {
-  const yearsRow = document.getElementById("ai-years");
-  const countsRow = document.getElementById("ai-counts");
-  const changesRow = document.getElementById("ai-changes");
-  const caption = document.getElementById("ai-caption");
-  const note = document.getElementById("ai-comparison-note");
+  const targetIds = options.targetIds || {};
+  const yearsRow = document.getElementById(targetIds.years || "ai-years");
+  const countsRow = document.getElementById(targetIds.counts || "ai-counts");
+  const changesRow = document.getElementById(targetIds.changes || "ai-changes");
+  const caption = document.getElementById(targetIds.caption || "ai-caption");
+  const note = document.getElementById(targetIds.note || "ai-comparison-note");
   if (!rows.length || !yearsRow || !countsRow || !changesRow || !caption || !note) return;
 
   yearsRow.replaceChildren();
@@ -489,6 +490,49 @@ function cumulativeComparisonRows(monthIndex) {
   return rows;
 }
 
+function monthlyComparisonRowsFromCumulative(monthIndex) {
+  const { cumulative } = aiImpactData;
+  const rows = [];
+  for (let year = START_YEAR; year <= cumulative.latestYear; year++) {
+    const counts = cumulative.countsByYear.get(year);
+    rows.push({
+      date: new Date(Date.UTC(year, monthIndex, 1)),
+      count: counts[monthIndex] - (monthIndex === 0 ? 0 : counts[monthIndex - 1])
+    });
+  }
+  return rows;
+}
+
+function renderUpdatedMonthlyComparison() {
+  const canvas = document.getElementById("monthly-impact-chart");
+  const context = document.getElementById("monthly-month-context");
+  if (!canvas || !context) return;
+
+  const monthIndex = aiImpactData.selectedMonthIndex;
+  const monthLabel = fullMonthName(monthIndex);
+  const rows = monthlyComparisonRowsFromCumulative(monthIndex);
+  const countsByYear = new Map(rows.map((row) => [row.date.getUTCFullYear(), row.count]));
+  const axisLabel = `Papers in ${monthLabel}`;
+
+  context.textContent = `First-version math.SG papers posted on arXiv in ${monthLabel} of each year.`;
+  canvas.setAttribute("aria-label", `Paper counts in ${monthLabel}, ${START_YEAR}–${aiImpactData.cumulative.latestYear}. The horizontal axis is year and the vertical axis is the number of papers in ${monthLabel}.`);
+  renderPeriodComparisonChart(canvas, rows, axisLabel);
+  renderAiComparisonTable(rows, {
+    targetIds: {
+      years: "monthly-years",
+      counts: "monthly-counts",
+      changes: "monthly-changes",
+      caption: "monthly-caption",
+      note: "monthly-comparison-note"
+    },
+    caption: `Papers in ${monthLabel}, by year.`,
+    countLabel: axisLabel,
+    note: `Each percentage compares ${monthLabel} with ${monthLabel} in the preceding year.`,
+    previousFor: (row) => countsByYear.get(row.date.getUTCFullYear() - 1),
+    comparisonLabel: (row) => `Compared with ${monthLabel} ${row.date.getUTCFullYear() - 1}`
+  });
+}
+
 function renderUpdatedTracker() {
   const canvas = document.getElementById("ai-impact-chart");
   const context = document.getElementById("ai-month-context");
@@ -513,12 +557,15 @@ function renderUpdatedTracker() {
       ? `Compared with January ${row.date.getUTCFullYear() - 1}`
       : `Compared with January through ${monthLabel} ${row.date.getUTCFullYear() - 1}`
   });
+  renderUpdatedMonthlyComparison();
 }
 
 function renderTracker() {
   if (!aiImpactData.cumulative || !aiImpactData.oldMonthRows.length) return;
   const oldView = aiImpactData.view === "old";
   document.getElementById("updated-month-picker").hidden = oldView;
+  const monthlyTracker = document.getElementById("monthly-tracker");
+  if (monthlyTracker) monthlyTracker.hidden = oldView;
   document.getElementById("ai-period-switch").hidden = !oldView;
   document.getElementById("tracker-toggle").textContent = oldView
     ? "See the updated tracker" : "See the previous tracker";
@@ -557,7 +604,8 @@ function renderMonthOptions() {
     button.dataset.monthIndex = String(monthIndex);
     button.textContent = SHORT_MONTH_NAMES[monthIndex];
     button.setAttribute("aria-label", monthIndex === 0
-      ? "Show papers in January" : `Show papers from January through ${fullMonthName(monthIndex)}`);
+      ? "Show January comparisons in both charts and tables"
+      : `Show paper totals through ${fullMonthName(monthIndex)} and ${fullMonthName(monthIndex)} monthly comparisons`);
     options.append(button);
   }
 }

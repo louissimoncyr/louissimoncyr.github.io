@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f7e1bd" />
   <title>Louis-Simon Cyr</title>
   <link rel="icon" type="image/png" href="assets/quebec-flag-icon-spear.png" />
-  <link rel="stylesheet" href="styles.css?v=20261004-1" />
+  <link rel="stylesheet" href="styles.css?v=20261004-2" />
 </head>
 <body class="tracker-shell">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -47,7 +47,7 @@
         </div>
       </div>
 
-      <div id="updated-month-picker" class="month-picker" role="group" aria-label="Show paper totals through month">
+      <div id="updated-month-picker" class="month-picker" role="group" aria-label="Choose month for both comparisons">
         <span>Month:</span>
         <span id="month-options" class="month-options"></span>
       </div>
@@ -77,6 +77,35 @@
         </div>
         <p id="ai-comparison-note" class="small-meta">Loading year-to-year changes…</p>
       </div>
+
+      <section id="monthly-tracker" class="monthly-tracker" aria-labelledby="monthly-tracker-title">
+        <h2 id="monthly-tracker-title">Monthly comparison</h2>
+        <p id="monthly-month-context" class="small-meta" aria-live="polite">Loading monthly paper totals…</p>
+        <div class="card chart-card">
+          <canvas id="monthly-impact-chart" height="300" width="900" aria-label="Paper totals in the selected month by year."></canvas>
+        </div>
+        <div class="annual-summary">
+          <div class="table-scroll">
+            <table class="annual-table">
+              <caption id="monthly-caption">Loading monthly paper totals…</caption>
+              <thead>
+                <tr id="monthly-years">
+                  <th scope="col">Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr id="monthly-counts">
+                  <th scope="row">Papers</th>
+                </tr>
+                <tr id="monthly-changes">
+                  <th scope="row">Change from prior year</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p id="monthly-comparison-note" class="small-meta">Loading year-to-year changes…</p>
+        </div>
+      </section>
 
       <!-- Remove hidden to display the AI disclosure analysis again. -->
       <div id="ai-disclosure-analysis" hidden>
@@ -168,7 +197,7 @@
     <p style="margin:0;text-align:right;">AI is used to maintain this website</p>
   </footer>
 
-  <script src="app.js?v=20261004-1"></script>
+  <script src="app.js?v=20261004-2"></script>
   <script>
     const siteUpdated = document.getElementById("site-last-updated");
     const siteUpdatedDate = new Date(document.lastModified);
