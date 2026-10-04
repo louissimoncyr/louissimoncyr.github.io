@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f7e1bd" />
   <title>Louis-Simon Cyr</title>
   <link rel="icon" type="image/png" href="assets/quebec-flag-icon-spear.png" />
-  <link rel="stylesheet" href="styles.css?v=20260927-1" />
+  <link rel="stylesheet" href="styles.css?v=20261004-1" />
 </head>
 <body class="tracker-shell">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -31,10 +31,10 @@
       <div class="section-head">
         <div>
           <h1 id="tracker-title" class="sr-only">Symplectic arXiv tracker</h1>
-          <p id="ai-month-context" class="small-meta" aria-live="polite">Loading the last completed month…</p>
+          <p id="ai-month-context" class="small-meta" aria-live="polite">Loading paper totals…</p>
         </div>
         <div class="ai-tools">
-          <fieldset id="ai-period-switch" class="ai-period-switch" data-selected="month">
+          <fieldset id="ai-period-switch" class="ai-period-switch" data-selected="month" hidden>
             <legend class="sr-only">Show comparison by</legend>
             <span class="ai-period-punctuation" aria-hidden="true">[</span>
             <input id="ai-period-month" type="radio" name="ai-period" value="month" checked />
@@ -47,14 +47,19 @@
         </div>
       </div>
 
+      <div id="updated-month-picker" class="month-picker" role="group" aria-label="Show paper totals through month">
+        <span>Month:</span>
+        <span id="month-options" class="month-options"></span>
+      </div>
+
       <div class="card chart-card">
-        <canvas id="ai-impact-chart" height="375" width="900" aria-label="Paper counts in the same completed calendar month across years. The horizontal axis is year and the vertical axis is the number of papers."></canvas>
+        <canvas id="ai-impact-chart" height="375" width="900" aria-label="Paper totals from January through the selected month by year."></canvas>
       </div>
 
       <div class="annual-summary">
         <div class="table-scroll">
           <table class="annual-table">
-            <caption id="ai-caption">Loading monthly comparison…</caption>
+            <caption id="ai-caption">Loading paper totals…</caption>
             <thead>
               <tr id="ai-years">
                 <th scope="col">Year</th>
@@ -70,7 +75,7 @@
             </tbody>
           </table>
         </div>
-        <p id="ai-comparison-note" class="small-meta">Loading same-month changes…</p>
+        <p id="ai-comparison-note" class="small-meta">Loading year-to-year changes…</p>
       </div>
 
       <!-- Remove hidden to display the AI disclosure analysis again. -->
@@ -91,6 +96,8 @@
 
         <p class="ai-data-link"><a href="ai-disclosure-data.html">View the full paper-by-paper data</a></p>
       </div>
+
+      <p class="tracker-switch"><a id="tracker-toggle" href="#tracker">See the previous tracker</a></p>
 
     </section>
 
@@ -161,7 +168,7 @@
     <p style="margin:0;text-align:right;">AI is used to maintain this website</p>
   </footer>
 
-  <script src="app.js?v=20260927-1"></script>
+  <script src="app.js?v=20261004-1"></script>
   <script>
     const siteUpdated = document.getElementById("site-last-updated");
     const siteUpdatedDate = new Date(document.lastModified);

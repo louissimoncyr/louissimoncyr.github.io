@@ -1,9 +1,19 @@
 const DATA_URL = "data/weekly_counts.json";
+const CUMULATIVE_DATA_URL = "data/cumulative_counts.json";
+const OLD_AUGUST_TRACKER_URL = "data/old_august_2026_tracker.json";
 const START_YEAR = 2015;
 const UPCOMING_TALKS_URL = "https://raw.githubusercontent.com/louissimoncyr/louissimoncyr.github.io/upcoming-talks-content/data/upcoming-talks.md";
 const UPCOMING_TALKS_FALLBACK_URL = "data/upcoming-talks.md";
 
-let aiImpactData = { monthRows: [] };
+const SHORT_MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+let aiImpactData = {
+  cumulative: null,
+  oldMonthRows: [],
+  oldMonthIndex: 7,
+  oldYear: 2026,
+  selectedMonthIndex: null,
+  view: "updated"
+};
 
 function upcomingTalkItems(markdown) {
   return markdown
@@ -177,13 +187,7 @@ function fullMonthName(monthIndex) {
     .format(new Date(Date.UTC(2000, monthIndex, 1)));
 }
 
-function comparisonMonthIndex() {
-  return (new Date().getMonth() + 11) % 12;
-}
-
-function monthComparisonRows(monthRows, monthIndex) {
-  const now = new Date();
-  const finalYear = now.getMonth() === 0 ? now.getFullYear() - 1 : now.getFullYear();
+function monthComparisonRows(monthRows, monthIndex, finalYear) {
   return monthRows.filter((row) => (
     row.date.getUTCFullYear() >= START_YEAR
     && row.date.getUTCFullYear() <= finalYear
@@ -386,12 +390,12 @@ function setupAiPeriodSwitch() {
   switcher.addEventListener("change", (event) => {
     if (!event.target.matches('input[name="ai-period"]')) return;
     syncAiPeriodSwitch();
-    updateAiImpact(aiImpactData.monthRows);
+    renderTracker();
   });
 }
 
-function updateAiImpact(monthRows) {
-  aiImpactData.monthRows = monthRows;
+function renderOldTracker() {
+  const monthRows = aiImpactData.oldMonthRows;
   const canvas = document.getElementById("ai-impact-chart");
   const context = document.getElementById("ai-month-context");
   if (!canvas || !context || !monthRows.length) return;
@@ -405,8 +409,8 @@ function updateAiImpact(monthRows) {
     const lastYear = rows[rows.length - 1].date.getUTCFullYear();
     const lastMonth = fullMonthName(lastMonthIndex);
     context.textContent = currentYearIsPartial
-      ? `Annual first-version paper totals. ${lastYear} is shown through ${lastMonth}.`
-      : "Annual first-version paper totals.";
+      ? `Old August 2026 tracker. Annual first-version paper totals; ${lastYear} is shown through ${lastMonth}.`
+      : "Old August 2026 tracker. Annual first-version paper totals.";
     canvas.setAttribute("aria-label", currentYearIsPartial
       ? `Annual paper totals from ${firstYear} through ${lastYear}; ${lastYear} is year to date through ${lastMonth}. The horizontal axis is year and the vertical axis is the number of papers.`
       : `Annual paper totals from ${firstYear} through ${lastYear}. The horizontal axis is year and the vertical axis is the number of papers.`);
@@ -428,9 +432,9 @@ function updateAiImpact(monthRows) {
     return;
   }
 
-  const monthIndex = comparisonMonthIndex();
+  const monthIndex = aiImpactData.oldMonthIndex;
   const monthLabel = fullMonthName(monthIndex);
-  const rows = monthComparisonRows(monthRows, monthIndex);
+  const rows = monthComparisonRows(monthRows, monthIndex, aiImpactData.oldYear);
   if (!rows.length) {
     context.textContent = `No ${monthLabel} data is available yet.`;
     return;
@@ -438,7 +442,7 @@ function updateAiImpact(monthRows) {
 
   const firstYear = rows[0].date.getUTCFullYear();
   const lastYear = rows[rows.length - 1].date.getUTCFullYear();
-  context.textContent = `First-version papers posted on Arxiv in ${monthLabel} with the math.SG tag each year.`;
+  context.textContent = `Old August 2026 tracker. First-version papers posted on arXiv in ${monthLabel} with the math.SG tag each year.`;
   canvas.setAttribute("aria-label", `Paper counts in ${monthLabel} from ${firstYear} through ${lastYear}. The horizontal axis is year and the vertical axis is the number of papers.`);
   renderPeriodComparisonChart(canvas, rows, `Papers in ${monthLabel}`);
   const allValues = new Map(
@@ -453,6 +457,140 @@ function updateAiImpact(monthRows) {
     previousFor: (row) => allValues.get(row.date.getUTCFullYear() - 1),
     comparisonLabel: (row) => `Compared with ${monthLabel} ${row.date.getUTCFullYear() - 1}`
   });
+}
+
+function parseCumulativeData(payload) {
+  const cutoff = /^(\d{4})-(0[1-9]|1[0-2])$/.exec(payload?.last_completed_month || "");
+  if (!cutoff || !Array.isArray(payload.years)) throw new Error("Invalid cumulative tracker data");
+
+  const latestYear = Number(cutoff[1]);
+  const latestMonthIndex = Number(cutoff[2]) - 1;
+  const countsByYear = new Map(payload.years.map((row) => [Number(row.year), row.cumulative]));
+  for (let year = START_YEAR; year <= latestYear; year++) {
+    const counts = countsByYear.get(year);
+    if (!Array.isArray(counts) || counts.length <= latestMonthIndex
+      || counts.slice(0, latestMonthIndex + 1).some((count) => !Number.isInteger(count) || count < 0)) {
+      throw new Error(`Missing cumulative tracker data for ${year}`);
+    }
+  }
+
+  return { latestYear, latestMonthIndex, countsByYear };
+}
+
+function cumulativeComparisonRows(monthIndex) {
+  const { cumulative } = aiImpactData;
+  const rows = [];
+  for (let year = START_YEAR; year <= cumulative.latestYear; year++) {
+    rows.push({
+      date: new Date(Date.UTC(year, 0, 1)),
+      count: cumulative.countsByYear.get(year)[monthIndex]
+    });
+  }
+  return rows;
+}
+
+function renderUpdatedTracker() {
+  const canvas = document.getElementById("ai-impact-chart");
+  const context = document.getElementById("ai-month-context");
+  const monthIndex = aiImpactData.selectedMonthIndex;
+  const monthLabel = fullMonthName(monthIndex);
+  const period = monthIndex === 0 ? "in January" : `from January through ${monthLabel}`;
+  const rows = cumulativeComparisonRows(monthIndex);
+  const totalsByYear = new Map(rows.map((row) => [row.date.getUTCFullYear(), row.count]));
+  const axisLabel = monthIndex === 0 ? "Papers in January" : `Papers through ${monthLabel}`;
+
+  context.textContent = `First-version math.SG papers posted on arXiv ${period} each year.`;
+  canvas.setAttribute("aria-label", `Paper totals ${period}, ${START_YEAR}–${aiImpactData.cumulative.latestYear}. The horizontal axis is year and the vertical axis is the number of papers ${period}.`);
+  renderPeriodComparisonChart(canvas, rows, axisLabel);
+  renderAiComparisonTable(rows, {
+    caption: `First-version math.SG paper totals ${period}, by year.`,
+    countLabel: axisLabel,
+    note: monthIndex === 0
+      ? "Each percentage compares January with January in the preceding year."
+      : `Each percentage compares January through ${monthLabel} with the same months in the preceding year.`,
+    previousFor: (row) => totalsByYear.get(row.date.getUTCFullYear() - 1),
+    comparisonLabel: (row) => monthIndex === 0
+      ? `Compared with January ${row.date.getUTCFullYear() - 1}`
+      : `Compared with January through ${monthLabel} ${row.date.getUTCFullYear() - 1}`
+  });
+}
+
+function renderTracker() {
+  if (!aiImpactData.cumulative || !aiImpactData.oldMonthRows.length) return;
+  const oldView = aiImpactData.view === "old";
+  document.getElementById("updated-month-picker").hidden = oldView;
+  document.getElementById("ai-period-switch").hidden = !oldView;
+  document.getElementById("tracker-toggle").textContent = oldView
+    ? "See the updated tracker" : "See the previous tracker";
+  document.querySelectorAll(".month-option").forEach((button) => {
+    button.setAttribute("aria-pressed", String(Number(button.dataset.monthIndex) === aiImpactData.selectedMonthIndex));
+  });
+  if (oldView) renderOldTracker();
+  else renderUpdatedTracker();
+}
+
+function setupTrackerControls() {
+  const options = document.getElementById("month-options");
+  options.addEventListener("click", (event) => {
+    const button = event.target.closest("button[data-month-index]");
+    if (!button || !options.contains(button)) return;
+    aiImpactData.selectedMonthIndex = Number(button.dataset.monthIndex);
+    renderTracker();
+  });
+
+  document.getElementById("tracker-toggle").addEventListener("click", (event) => {
+    event.preventDefault();
+    aiImpactData.view = aiImpactData.view === "updated" ? "old" : "updated";
+    if (aiImpactData.view === "old") document.getElementById("ai-period-month").checked = true;
+    renderTracker();
+    document.getElementById("tracker").scrollIntoView({ block: "start" });
+  });
+}
+
+function renderMonthOptions() {
+  const options = document.getElementById("month-options");
+  options.replaceChildren();
+  for (let monthIndex = 0; monthIndex <= aiImpactData.cumulative.latestMonthIndex; monthIndex++) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "month-option";
+    button.dataset.monthIndex = String(monthIndex);
+    button.textContent = SHORT_MONTH_NAMES[monthIndex];
+    button.setAttribute("aria-label", monthIndex === 0
+      ? "Show papers in January" : `Show papers from January through ${fullMonthName(monthIndex)}`);
+    options.append(button);
+  }
+}
+
+async function loadTrackerData() {
+  try {
+    const [cumulativePayload, oldPayload] = await Promise.all(
+      [CUMULATIVE_DATA_URL, OLD_AUGUST_TRACKER_URL].map(async (url) => {
+        const response = await fetch(url, { cache: "no-store" });
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        return response.json();
+      })
+    );
+    const oldMonthRows = parseMonthlyData(oldPayload);
+    const archiveDate = /^(\d{4})-(0[1-9]|1[0-2])$/.exec(oldPayload?.as_of_month || "");
+    if (!archiveDate || oldMonthRows.at(-1)?.month !== oldPayload.as_of_month) {
+      throw new Error("Invalid old tracker data");
+    }
+
+    aiImpactData.cumulative = parseCumulativeData(cumulativePayload);
+    aiImpactData.oldMonthRows = oldMonthRows;
+    aiImpactData.oldYear = Number(archiveDate[1]);
+    aiImpactData.oldMonthIndex = Number(archiveDate[2]) - 1;
+    aiImpactData.selectedMonthIndex = aiImpactData.cumulative.latestMonthIndex;
+    setupAiPeriodSwitch();
+    setupTrackerControls();
+    renderMonthOptions();
+    renderTracker();
+  } catch (_error) {
+    document.getElementById("ai-month-context").textContent = "Tracker data is unavailable right now.";
+    document.getElementById("updated-month-picker").hidden = true;
+    document.getElementById("tracker-toggle").hidden = true;
+  }
 }
 
 function renderTrend(canvas, rows) {
@@ -591,11 +729,7 @@ function updateSummary(rows, payloadUpdated) {
 function summarizeAndRender(payload, forceFallback = false) {
   const rows = parseData(payload);
   const safeRows = rows.length ? rows : parseData(fallbackData);
-  const monthlyRows = parseMonthlyData(payload);
-  const safeMonthlyRows = monthlyRows.length ? monthlyRows : monthlyRowsFromWeeks(safeRows);
 
-  setupAiPeriodSwitch();
-  updateAiImpact(safeMonthlyRows);
   updateSummary(safeRows, payload && payload.updated ? payload.updated : fallbackData.updated);
 
   if (rows.length !== safeRows.length && forceFallback) {
@@ -616,4 +750,5 @@ async function run() {
 }
 
 run();
+loadTrackerData();
 loadUpcomingTalks();

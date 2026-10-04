@@ -18,6 +18,8 @@ API = "https://export.arxiv.org/api/query"
 ROOT = Path(__file__).resolve().parents[1]
 PAPERS_PATH = ROOT / "data" / "papers.csv"
 OUTPUT_PATH = ROOT / "data" / "weekly_counts.json"
+CUMULATIVE_OUTPUT_PATH = ROOT / "data" / "cumulative_counts.json"
+START_YEAR = 2015
 ATOM = {
     "atom": "http://www.w3.org/2005/Atom",
     "opensearch": "http://a9.com/-/spec/opensearch/1.1/",
@@ -118,7 +120,34 @@ def last_completed_month(today: dt.date) -> dt.date:
     return today.replace(day=1) - dt.timedelta(days=1)
 
 
-def write_statistics(papers: dict[str, dict[str, str]], output_path: Path) -> None:
+def write_cumulative_statistics(
+    months: list[dict[str, str | int]], final_month: dt.date, output_path: Path
+) -> None:
+    counts_by_month = {str(row["month"]): int(row["count"]) for row in months}
+    years = []
+    for year in range(START_YEAR, final_month.year + 1):
+        cumulative = []
+        running_total = 0
+        for month in range(1, 13):
+            if year == final_month.year and month > final_month.month:
+                break
+            running_total += counts_by_month.get(f"{year}-{month:02d}", 0)
+            cumulative.append(running_total)
+        years.append({"year": year, "cumulative": cumulative})
+
+    payload = {
+        "last_completed_month": final_month.strftime("%Y-%m"),
+        "start_year": START_YEAR,
+        "years": years,
+    }
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    output_path.write_text(json.dumps(payload, indent=2) + "\n", encoding="utf-8")
+
+
+def write_statistics(
+    papers: dict[str, dict[str, str]], output_path: Path,
+    cumulative_output_path: Path = CUMULATIVE_OUTPUT_PATH,
+) -> None:
     dates = [dt.date.fromisoformat(row["published"]) for row in papers.values() if row.get("published")]
     if not dates:
         raise RuntimeError("No papers found")
@@ -164,12 +193,17 @@ def write_statistics(papers: dict[str, dict[str, str]], output_path: Path) -> No
         "months": months,
     }
     output_path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+    write_cumulative_statistics(months, final_month, cumulative_output_path)
 
 
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--bootstrap", action="store_true", help="Fetch the complete math.SG history")
     parser.add_argument("--output", type=Path, default=OUTPUT_PATH, help="Output JSON path")
+    parser.add_argument(
+        "--cumulative-output", type=Path, default=CUMULATIVE_OUTPUT_PATH,
+        help="Output path for cumulative monthly counts",
+    )
     args = parser.parse_args()
 
     papers = load_existing()
@@ -183,7 +217,7 @@ def main() -> None:
         papers.update({row["id"]: row for row in new_rows})
 
     write_papers(papers)
-    write_statistics(papers, args.output)
+    write_statistics(papers, args.output, args.cumulative_output)
     print(f"Stored {len(papers):,} unique math.SG papers")
 
 

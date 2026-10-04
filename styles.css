@@ -239,6 +239,48 @@ button.btn:hover {
   border: 0;
 }
 
+.ai-period-switch[hidden],
+.month-picker[hidden] {
+  display: none;
+}
+
+.month-picker,
+.month-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.month-picker {
+  gap: 0 0.45rem;
+  margin-top: 0.8rem;
+}
+
+.month-options {
+  gap: 0 0.5rem;
+}
+
+.month-option {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.month-option[aria-pressed="true"],
+.month-option:hover {
+  font-weight: 700;
+}
+
+.month-option:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--focus) 45%, transparent);
+  outline-offset: 2px;
+}
+
 .ai-period-switch input {
   position: absolute;
   inline-size: 1px;
@@ -312,6 +354,10 @@ h3 {
 .annual-summary {
   margin-top: 1.35rem;
   padding-top: 1.15rem;
+}
+
+.tracker-switch {
+  margin: 1.5rem 0 0;
 }
 
 .annual-summary h2 {
