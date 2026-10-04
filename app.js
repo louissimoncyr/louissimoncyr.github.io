@@ -6,6 +6,25 @@ const UPCOMING_TALKS_URL = "https://raw.githubusercontent.com/louissimoncyr/loui
 const UPCOMING_TALKS_FALLBACK_URL = "data/upcoming-talks.md";
 
 const SHORT_MONTH_NAMES = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const DISCLOSURE_AUDITS = {
+  7: {
+    month: "August",
+    categories: [
+      { label: "AI use disclosed", count: 12, swatch: "ai-use", color: "var(--text)" },
+      { label: "Explicit no-use statement", count: 1, swatch: "no-use", color: "var(--trend)" },
+      { label: "No AI disclosure found", count: 65, swatch: "no-disclosure", color: "var(--line)" }
+    ]
+  },
+  8: {
+    month: "September",
+    categories: [
+      { label: "AI use disclosed", count: 34, swatch: "ai-use", color: "var(--text)" },
+      { label: "Full-work no-use statement", count: 3, swatch: "no-use", color: "var(--trend)" },
+      { label: "Limited no-use statement", count: 2, swatch: "limited-no-use", color: "var(--average)" },
+      { label: "No AI statement found", count: 34, swatch: "no-disclosure", color: "var(--line)" }
+    ]
+  }
+};
 let aiImpactData = {
   cumulative: null,
   oldMonthRows: [],
@@ -562,6 +581,47 @@ function renderUpdatedTracker() {
   renderUpdatedMonthlyComparison();
 }
 
+function renderDisclosureSummary() {
+  const section = document.getElementById("ai-disclosure-summary");
+  const audit = aiImpactData.view === "updated"
+    ? DISCLOSURE_AUDITS[aiImpactData.selectedMonthIndex] : null;
+  section.hidden = !audit;
+  if (!audit) return;
+
+  const total = audit.categories.reduce((sum, category) => sum + category.count, 0);
+  document.getElementById("ai-disclosure-summary-title").textContent = `AI disclosure in ${audit.month} 2026`;
+  document.getElementById("ai-disclosure-summary-description").textContent =
+    `Disclosure status for ${total} math.SG papers first submitted in ${audit.month} 2026.`;
+  document.getElementById("ai-disclosure-summary-link").href =
+    `ai-disclosure-data.html#${audit.month.toLowerCase()}-2026`;
+
+  let start = 0;
+  const stops = audit.categories.map((category, index) => {
+    const end = index === audit.categories.length - 1
+      ? 100 : start + category.count / total * 100;
+    const stop = `${category.color} ${start.toFixed(4)}% ${end.toFixed(4)}%`;
+    start = end;
+    return stop;
+  });
+  const pie = document.getElementById("ai-disclosure-summary-pie");
+  pie.style.backgroundImage = `conic-gradient(${stops.join(", ")})`;
+  pie.setAttribute("aria-label", `${audit.month} 2026 AI disclosure: ${audit.categories
+    .map((category) => `${category.label}, ${category.count}`)
+    .join("; ")}.`);
+
+  const legend = document.getElementById("ai-disclosure-summary-legend");
+  legend.replaceChildren(...audit.categories.map((category) => {
+    const item = document.createElement("li");
+    const swatch = document.createElement("span");
+    swatch.className = `ai-disclosure-swatch ${category.swatch}`;
+    swatch.setAttribute("aria-hidden", "true");
+    const label = document.createElement("span");
+    label.textContent = `${category.label}: ${category.count} (${(category.count / total * 100).toFixed(1)}%)`;
+    item.append(swatch, label);
+    return item;
+  }));
+}
+
 function renderTracker() {
   if (!aiImpactData.cumulative || !aiImpactData.oldMonthRows.length) return;
   const oldView = aiImpactData.view === "old";
@@ -577,6 +637,7 @@ function renderTracker() {
   });
   if (oldView) renderOldTracker();
   else renderUpdatedTracker();
+  renderDisclosureSummary();
 }
 
 function setupTrackerControls() {

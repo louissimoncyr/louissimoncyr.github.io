@@ -393,12 +393,45 @@ h3 {
   margin-top: 1.5rem;
 }
 
+.ai-disclosure-summary {
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.ai-disclosure-summary[hidden] {
+  display: none;
+}
+
+.ai-disclosure-summary h2 {
+  margin: 0;
+}
+
 .ai-disclosure-chart {
   display: grid;
   grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: center;
   margin: 1.25rem 0 0;
+}
+
+.ai-disclosure-summary .ai-disclosure-chart {
+  grid-template-columns: minmax(7rem, 9rem) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.ai-disclosure-summary figcaption > p:first-child {
+  margin: 0 0 0.55rem;
+}
+
+.ai-disclosure-summary .ai-disclosure-legend {
+  gap: 0.3rem;
+}
+
+.ai-disclosure-summary .ai-data-link {
+  margin-top: 0.7rem;
 }
 
 .ai-disclosure-pie {
@@ -443,6 +476,10 @@ h3 {
   background: var(--trend);
 }
 
+.ai-disclosure-swatch.limited-no-use {
+  background: var(--average);
+}
+
 .ai-disclosure-swatch.no-disclosure {
   background: var(--line);
 }
@@ -460,6 +497,10 @@ body.data-shell {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin: 1.25rem 0;
+}
+
+.ai-audit-counts--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .ai-audit-counts p {
@@ -821,6 +862,15 @@ canvas {
   .ai-disclosure-chart,
   .ai-audit-counts {
     grid-template-columns: 1fr;
+  }
+
+  .ai-disclosure-summary .ai-disclosure-chart {
+    grid-template-columns: minmax(6rem, 7rem) minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .ai-disclosure-summary .ai-disclosure-pie {
+    max-width: 7rem;
   }
 
   .ai-disclosure-pie {
