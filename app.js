@@ -344,7 +344,7 @@ function renderAiComparisonTable(rows, options) {
   addAnnualCell(countsRow, "th", options.countLabel, { scope: "row" });
   addAnnualCell(changesRow, "th", "Change from prior year", { scope: "row" });
 
-  rows.forEach((row) => {
+  (options.reverseYears ? rows.slice().reverse() : rows).forEach((row) => {
     const year = row.date.getUTCFullYear();
     const { value: change, text: changeText } = percentageChange(row.count, options.previousFor(row));
     const currentPartial = Boolean(row.partial);
@@ -518,6 +518,7 @@ function renderUpdatedMonthlyComparison() {
   canvas.setAttribute("aria-label", `Paper counts in ${monthLabel}, ${START_YEAR}–${aiImpactData.cumulative.latestYear}. The horizontal axis is year and the vertical axis is the number of papers in ${monthLabel}.`);
   renderPeriodComparisonChart(canvas, rows, axisLabel);
   renderAiComparisonTable(rows, {
+    reverseYears: true,
     targetIds: {
       years: "monthly-years",
       counts: "monthly-counts",
@@ -547,6 +548,7 @@ function renderUpdatedTracker() {
   canvas.setAttribute("aria-label", `Paper totals ${period}, ${START_YEAR}–${aiImpactData.cumulative.latestYear}. The horizontal axis is year and the vertical axis is the number of papers ${period}.`);
   renderPeriodComparisonChart(canvas, rows, axisLabel);
   renderAiComparisonTable(rows, {
+    reverseYears: true,
     caption: `First-version math.SG paper totals ${period}, by year.`,
     countLabel: axisLabel,
     note: monthIndex === 0
