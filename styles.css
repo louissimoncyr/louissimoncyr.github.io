@@ -51,6 +51,12 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+a[href]:hover,
+button:hover,
+label[for]:hover {
+  font-weight: 700;
+}
+
 a:focus-visible,
 .btn:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--accent) 38%, transparent);
@@ -257,7 +263,7 @@ button.btn:hover {
 
 .month-picker {
   gap: 0 0.45rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.35rem;
 }
 
 .month-options {
@@ -281,6 +287,30 @@ button.btn:hover {
 }
 
 .month-option:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--focus) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.tracker-mode-switch {
+  display: block;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tracker-mode-switch[hidden],
+#year-to-date-tracker[hidden] {
+  display: none;
+}
+
+.tracker-mode-switch:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--focus) 45%, transparent);
   outline-offset: 2px;
 }
@@ -355,7 +385,7 @@ h3 {
   padding: 1rem;
 }
 
-.tracker-section > .chart-card,
+#year-to-date-tracker > .chart-card,
 .monthly-tracker > .chart-card {
   margin-top: 0.5rem;
   padding: 0.5rem 1rem 0;
@@ -371,9 +401,7 @@ h3 {
 }
 
 .monthly-tracker {
-  margin-top: 1.3rem;
-  padding-top: 1.1rem;
-  border-top: 1px solid var(--line);
+  display: flow-root;
 }
 
 .monthly-tracker[hidden] {
@@ -386,10 +414,6 @@ h3 {
 
 .monthly-tracker > .small-meta {
   margin: 0.2rem 0 0;
-}
-
-.tracker-switch {
-  margin: 1.5rem 0 0;
 }
 
 .annual-summary h2 {

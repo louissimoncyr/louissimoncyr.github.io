@@ -31,6 +31,7 @@ let aiImpactData = {
   oldMonthIndex: 7,
   oldYear: 2026,
   selectedMonthIndex: null,
+  comparisonMode: "year-to-date",
   view: "updated"
 };
 
@@ -554,6 +555,11 @@ function renderUpdatedMonthlyComparison() {
 }
 
 function renderUpdatedTracker() {
+  if (aiImpactData.comparisonMode === "monthly") {
+    renderUpdatedMonthlyComparison();
+    return;
+  }
+
   const canvas = document.getElementById("ai-impact-chart");
   const context = document.getElementById("ai-month-context");
   const monthIndex = aiImpactData.selectedMonthIndex;
@@ -578,7 +584,6 @@ function renderUpdatedTracker() {
       ? `Compared with January ${row.date.getUTCFullYear() - 1}`
       : `Compared with January through ${monthLabel} ${row.date.getUTCFullYear() - 1}`
   });
-  renderUpdatedMonthlyComparison();
 }
 
 function renderDisclosureSummary() {
@@ -625,14 +630,17 @@ function renderDisclosureSummary() {
 function renderTracker() {
   if (!aiImpactData.cumulative || !aiImpactData.oldMonthRows.length) return;
   const oldView = aiImpactData.view === "old";
+  const monthlyMode = !oldView && aiImpactData.comparisonMode === "monthly";
   document.getElementById("updated-month-picker").hidden = oldView;
+  document.getElementById("year-to-date-tracker").hidden = monthlyMode;
+  document.getElementById("monthly-tracker").hidden = !monthlyMode;
+  const modeSwitch = document.getElementById("tracker-mode-switch");
+  modeSwitch.hidden = oldView;
+  modeSwitch.textContent = monthlyMode
+    ? "Switch to year-to-date comparison" : "Switch to month-by-month comparison";
   document.getElementById("ai-tools").hidden = !oldView;
   document.getElementById("ai-comparison-note").hidden = !oldView;
-  const monthlyTracker = document.getElementById("monthly-tracker");
-  if (monthlyTracker) monthlyTracker.hidden = oldView;
   document.getElementById("ai-period-switch").hidden = !oldView;
-  document.getElementById("tracker-toggle").textContent = oldView
-    ? "See the updated tracker" : "See the previous tracker";
   document.querySelectorAll(".month-option").forEach((button) => {
     button.setAttribute("aria-pressed", String(Number(button.dataset.monthIndex) === aiImpactData.selectedMonthIndex));
   });
@@ -650,12 +658,10 @@ function setupTrackerControls() {
     renderTracker();
   });
 
-  document.getElementById("tracker-toggle").addEventListener("click", (event) => {
-    event.preventDefault();
-    aiImpactData.view = aiImpactData.view === "updated" ? "old" : "updated";
-    if (aiImpactData.view === "old") document.getElementById("ai-period-month").checked = true;
+  document.getElementById("tracker-mode-switch").addEventListener("click", () => {
+    aiImpactData.comparisonMode = aiImpactData.comparisonMode === "monthly"
+      ? "year-to-date" : "monthly";
     renderTracker();
-    document.getElementById("tracker").scrollIntoView({ block: "start" });
   });
 }
 
@@ -668,9 +674,7 @@ function renderMonthOptions() {
     button.className = "month-option";
     button.dataset.monthIndex = String(monthIndex);
     button.textContent = SHORT_MONTH_NAMES[monthIndex];
-    button.setAttribute("aria-label", monthIndex === 0
-      ? "Show January comparisons in both charts and tables"
-      : `Show paper totals through ${fullMonthName(monthIndex)} and ${fullMonthName(monthIndex)} monthly comparisons`);
+    button.setAttribute("aria-label", `Show ${fullMonthName(monthIndex)} in the selected comparison`);
     options.append(button);
   }
 }
@@ -702,7 +706,7 @@ async function loadTrackerData() {
   } catch (_error) {
     document.getElementById("ai-month-context").textContent = "Tracker data is unavailable right now.";
     document.getElementById("updated-month-picker").hidden = true;
-    document.getElementById("tracker-toggle").hidden = true;
+    document.getElementById("tracker-mode-switch").hidden = true;
   }
 }
 
