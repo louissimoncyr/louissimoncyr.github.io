@@ -501,7 +501,7 @@ body.data-shell {
   border-radius: 0;
   background: transparent;
   scrollbar-width: thin;
-  scrollbar-color: var(--line) transparent;
+  scrollbar-color: var(--bg) transparent;
 }
 
 .table-scroll::-webkit-scrollbar {
@@ -515,7 +515,7 @@ body.data-shell {
 .table-scroll::-webkit-scrollbar-thumb {
   border: 2px solid transparent;
   border-radius: 999px;
-  background: var(--line);
+  background: var(--bg);
   background-clip: padding-box;
 }
 
