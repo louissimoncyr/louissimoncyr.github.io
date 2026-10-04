@@ -500,6 +500,32 @@ body.data-shell {
   overflow-x: auto;
   border-radius: 0;
   background: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.table-scroll::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--line);
+  background-clip: padding-box;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-soft);
+  background-clip: padding-box;
+}
+
+.table-scroll::-webkit-scrollbar-button {
+  display: none;
 }
 
 .annual-table {

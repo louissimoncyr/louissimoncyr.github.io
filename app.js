@@ -549,7 +549,7 @@ function renderUpdatedTracker() {
   renderPeriodComparisonChart(canvas, rows, axisLabel);
   renderAiComparisonTable(rows, {
     reverseYears: true,
-    caption: `First-version math.SG paper totals ${period}, by year.`,
+    caption: `Totals ${period}, by year.`,
     countLabel: axisLabel,
     note: monthIndex === 0
       ? "Each percentage compares January with January in the preceding year."
@@ -566,6 +566,7 @@ function renderTracker() {
   if (!aiImpactData.cumulative || !aiImpactData.oldMonthRows.length) return;
   const oldView = aiImpactData.view === "old";
   document.getElementById("updated-month-picker").hidden = oldView;
+  document.getElementById("ai-comparison-note").hidden = !oldView;
   const monthlyTracker = document.getElementById("monthly-tracker");
   if (monthlyTracker) monthlyTracker.hidden = oldView;
   document.getElementById("ai-period-switch").hidden = !oldView;
