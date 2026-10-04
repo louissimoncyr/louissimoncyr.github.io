@@ -489,6 +489,67 @@ function cumulativeComparisonRows(monthIndex) {
   return rows;
 }
 
+function monthlyCountFor(year, monthIndex) {
+  const cumulative = aiImpactData.cumulative.countsByYear.get(year);
+  if (!cumulative || !Number.isInteger(cumulative[monthIndex])) return null;
+  return cumulative[monthIndex] - (monthIndex === 0 ? 0 : cumulative[monthIndex - 1]);
+}
+
+function renderMonthlyComparisonTables() {
+  const countsYears = document.getElementById("monthly-counts-years");
+  const countsBody = document.getElementById("monthly-counts-body");
+  const countsCaption = document.getElementById("monthly-counts-caption");
+  const variationYears = document.getElementById("monthly-variation-years");
+  const variationBody = document.getElementById("monthly-variation-body");
+  const variationCaption = document.getElementById("monthly-variation-caption");
+  if (!countsYears || !countsBody || !countsCaption
+    || !variationYears || !variationBody || !variationCaption) return;
+
+  const { latestYear, latestMonthIndex } = aiImpactData.cumulative;
+  const years = [];
+  for (let year = latestYear; year >= START_YEAR; year--) years.push(year);
+
+  countsYears.replaceChildren();
+  countsBody.replaceChildren();
+  variationYears.replaceChildren();
+  variationBody.replaceChildren();
+  addAnnualCell(countsYears, "th", "Month", { scope: "col" });
+  addAnnualCell(variationYears, "th", "Month", { scope: "col" });
+  years.forEach((year) => {
+    addAnnualCell(countsYears, "th", String(year), { scope: "col" });
+    addAnnualCell(variationYears, "th", String(year), { scope: "col" });
+  });
+
+  for (let monthIndex = 0; monthIndex <= latestMonthIndex; monthIndex++) {
+    const monthLabel = fullMonthName(monthIndex);
+    const countsRow = document.createElement("tr");
+    const variationRow = document.createElement("tr");
+    addAnnualCell(countsRow, "th", monthLabel, { scope: "row" });
+    addAnnualCell(variationRow, "th", monthLabel, { scope: "row" });
+
+    years.forEach((year) => {
+      const count = monthlyCountFor(year, monthIndex);
+      const priorCount = year > START_YEAR ? monthlyCountFor(year - 1, monthIndex) : null;
+      const { value: change, text: changeText } = percentageChange(count, priorCount);
+      addAnnualCell(countsRow, "td", count === null ? "—" : count.toLocaleString());
+      addAnnualCell(variationRow, "td", changeText, {
+        className: change > 0 ? "positive" : change < 0 ? "negative" : "",
+        title: change === null
+          ? "No prior-year comparison is available"
+          : `Compared with ${monthLabel} ${year - 1}`
+      });
+    });
+
+    countsBody.append(countsRow);
+    variationBody.append(variationRow);
+  }
+
+  const period = latestMonthIndex === 0
+    ? "January" : `January–${fullMonthName(latestMonthIndex)}`;
+  countsCaption.textContent = `First-version math.SG papers posted on arXiv each month, ${period}, ${START_YEAR}–${latestYear}.`;
+  variationCaption.textContent = `Year-over-year percentage change in monthly first-version math.SG papers, ${period}, ${START_YEAR}–${latestYear}.`;
+}
+
 function renderUpdatedTracker() {
   const canvas = document.getElementById("ai-impact-chart");
   const context = document.getElementById("ai-month-context");
@@ -513,6 +574,7 @@ function renderUpdatedTracker() {
       ? `Compared with January ${row.date.getUTCFullYear() - 1}`
       : `Compared with January through ${monthLabel} ${row.date.getUTCFullYear() - 1}`
   });
+  renderMonthlyComparisonTables();
 }
 
 function renderTracker() {
@@ -520,6 +582,8 @@ function renderTracker() {
   const oldView = aiImpactData.view === "old";
   document.getElementById("updated-month-picker").hidden = oldView;
   document.getElementById("ai-period-switch").hidden = !oldView;
+  const monthlyComparisons = document.getElementById("monthly-comparisons");
+  if (monthlyComparisons) monthlyComparisons.hidden = oldView;
   document.getElementById("tracker-toggle").textContent = oldView
     ? "See the updated tracker" : "See the previous tracker";
   document.querySelectorAll(".month-option").forEach((button) => {
@@ -589,6 +653,8 @@ async function loadTrackerData() {
   } catch (_error) {
     document.getElementById("ai-month-context").textContent = "Tracker data is unavailable right now.";
     document.getElementById("updated-month-picker").hidden = true;
+    const monthlyComparisons = document.getElementById("monthly-comparisons");
+    if (monthlyComparisons) monthlyComparisons.hidden = true;
     document.getElementById("tracker-toggle").hidden = true;
   }
 }
