@@ -240,8 +240,7 @@ button.btn:hover {
 }
 
 .ai-period-switch[hidden],
-.month-picker[hidden],
-.monthly-comparisons[hidden] {
+.month-picker[hidden] {
   display: none;
 }
 
@@ -355,29 +354,6 @@ h3 {
 .annual-summary {
   margin-top: 1.35rem;
   padding-top: 1.15rem;
-}
-
-.monthly-comparisons {
-  margin-top: 2rem;
-  padding-top: 1.15rem;
-  border-top: 1px solid var(--line);
-}
-
-.monthly-comparisons h2 {
-  margin: 0;
-}
-
-.monthly-table-group {
-  margin-top: 1.5rem;
-}
-
-.monthly-table-group h3 {
-  margin: 0;
-  font-size: var(--font-normal);
-}
-
-.monthly-table-group .small-meta {
-  margin-bottom: 0;
 }
 
 .tracker-switch {
@@ -509,25 +485,6 @@ body.data-shell {
   color: var(--text);
   background: transparent;
   font-variant-numeric: tabular-nums;
-}
-
-.monthly-table {
-  min-width: 56rem;
-}
-
-.annual-table.monthly-table th[scope='row'] {
-  min-width: 4.5rem;
-}
-
-.annual-table.monthly-table th:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  background: var(--surface);
-}
-
-.annual-table.monthly-table thead th:first-child {
-  z-index: 2;
 }
 
 .annual-table caption {
