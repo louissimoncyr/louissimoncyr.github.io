@@ -392,6 +392,10 @@ body.data-shell {
   margin: 1.25rem 0;
 }
 
+.ai-audit-counts--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
 .ai-audit-counts p {
   margin: 0;
   padding-top: 0.65rem;
