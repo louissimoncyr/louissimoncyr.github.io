@@ -6,12 +6,22 @@ const UPCOMING_TALKS_FALLBACK_URL = "data/upcoming-talks.md";
 let aiImpactData = { monthRows: [] };
 
 function upcomingTalkItems(markdown) {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
   return markdown
     .replace(/<!--[\s\S]*?(?:-->|$)/g, "")
     .split(/\r?\n/)
     .map((line) => line.match(/^[-*+]\s+(.+?)\s*$/))
     .filter(Boolean)
     .map((match) => match[1])
+    .filter((item) => {
+      const date = item.match(/^([A-Z][a-z]+)\s+(\d{1,2}),\s+(\d{4})\b/);
+      if (!date) return true;
+      const month = new Date(`${date[1]} 1, ${date[3]}`).getMonth();
+      if (Number.isNaN(month)) return true;
+      const talkDate = new Date(Number(date[3]), month, Number(date[2]));
+      return talkDate >= today;
+    })
     .slice(0, 50);
 }
 
