@@ -338,7 +338,6 @@ h3 {
 
 .tracker-title {
   margin: 0 0 0.7rem;
-  font-size: 1.75rem;
 }
 
 .kicker {
@@ -603,7 +602,7 @@ body.data-shell {
   background: transparent;
   text-align: center;
   white-space: nowrap;
-  font-size: 0.9rem;
+  font-size: var(--font-normal);
 }
 
 .annual-table th {
