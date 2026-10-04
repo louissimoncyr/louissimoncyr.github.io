@@ -253,7 +253,7 @@ button.btn:hover {
 
 .month-picker {
   gap: 0 0.45rem;
-  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
 }
 
 .month-options {
@@ -347,13 +347,19 @@ h3 {
   padding: 1rem;
 }
 
-.chart-card {
-  margin-top: 1rem;
+.tracker-section > .chart-card,
+.monthly-tracker > .chart-card {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem 0;
 }
 
 .annual-summary {
-  margin-top: 1.35rem;
-  padding-top: 1.15rem;
+  margin-top: 0.5rem;
+  padding-top: 0;
+}
+
+.annual-summary .table-scroll {
+  margin-top: 0;
 }
 
 .monthly-tracker {
@@ -372,20 +378,6 @@ h3 {
 
 .monthly-tracker > .small-meta {
   margin: 0.2rem 0 0;
-}
-
-.monthly-tracker .chart-card {
-  margin-top: 0.5rem;
-  padding: 0.5rem 1rem;
-}
-
-.monthly-tracker .annual-summary {
-  margin-top: 0.25rem;
-  padding-top: 0;
-}
-
-.monthly-tracker .table-scroll {
-  margin-top: 0;
 }
 
 .tracker-switch {
@@ -511,8 +503,7 @@ body.data-shell {
 }
 
 .annual-table {
-  width: 100%;
-  min-width: 46rem;
+  width: auto;
   border-collapse: collapse;
   color: var(--text);
   background: transparent;
@@ -520,7 +511,8 @@ body.data-shell {
 }
 
 .annual-table caption {
-  padding: 0 0 0.65rem;
+  width: min(32rem, calc(100vw - 5rem));
+  padding: 0 0 0.3rem;
   color: var(--text);
   text-align: left;
   font-size: var(--font-normal);
@@ -529,12 +521,13 @@ body.data-shell {
 
 .annual-table th,
 .annual-table td {
-  padding: 0.65rem 0.8rem;
+  padding: 0.35rem 0.45rem;
   border: 1px solid var(--line);
   color: var(--text);
   background: transparent;
   text-align: center;
   white-space: nowrap;
+  font-size: 0.9rem;
 }
 
 .annual-table th {
@@ -547,7 +540,7 @@ body.data-shell {
 }
 
 .annual-table th[scope='row'] {
-  min-width: 10rem;
+  min-width: 9rem;
   text-align: left;
   background: transparent;
 }
