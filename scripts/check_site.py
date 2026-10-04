@@ -106,6 +106,42 @@ def check_reference(
     return []
 
 
+def validate_cumulative_counts() -> list[str]:
+    monthly_path = ROOT / "data" / "weekly_counts.json"
+    cumulative_path = ROOT / "data" / "cumulative_counts.json"
+    try:
+        monthly = json.loads(monthly_path.read_text(encoding="utf-8"))
+        cumulative = json.loads(cumulative_path.read_text(encoding="utf-8"))
+        month_rows = monthly["months"]
+        latest_month = month_rows[-1]["month"]
+        monthly_counts = {row["month"]: row["count"] for row in month_rows}
+        cutoff_year, cutoff_month = map(int, latest_month.split("-"))
+    except (OSError, UnicodeError, json.JSONDecodeError, KeyError, IndexError, TypeError, ValueError) as exc:
+        return [f"data/cumulative_counts.json: cannot validate monthly totals: {exc}"]
+
+    if cumulative.get("start_year") != 2015:
+        return ["data/cumulative_counts.json: start_year must be 2015"]
+    if cumulative.get("last_completed_month") != latest_month:
+        return [f"data/cumulative_counts.json: last_completed_month must be {latest_month}"]
+
+    expected_years = []
+    for year in range(2015, cutoff_year + 1):
+        total = 0
+        cumulative_totals = []
+        final_month = cutoff_month if year == cutoff_year else 12
+        for month in range(1, final_month + 1):
+            key = f"{year}-{month:02d}"
+            if key not in monthly_counts:
+                return [f"data/weekly_counts.json: missing completed month {key}"]
+            total += monthly_counts[key]
+            cumulative_totals.append(total)
+        expected_years.append({"year": year, "cumulative": cumulative_totals})
+
+    if cumulative.get("years") != expected_years:
+        return ["data/cumulative_counts.json: yearly totals do not match completed monthly counts"]
+    return []
+
+
 def main() -> int:
     errors: list[str] = []
     html_files = sorted(path for path in ROOT.rglob("*.html") if not is_ignored(path))
@@ -147,6 +183,8 @@ def main() -> int:
                 json.load(handle)
         except (OSError, UnicodeError, json.JSONDecodeError) as exc:
             errors.append(f"{path.relative_to(ROOT)}: invalid JSON: {exc}")
+
+    errors.extend(validate_cumulative_counts())
 
     upcoming_talks = ROOT / "data" / "upcoming-talks.md"
     for error in validate_upcoming_talks(upcoming_talks):

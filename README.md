@@ -57,6 +57,8 @@ If a publish fails, the hook shows a desktop notification and writes details to 
 - `app.js` renders the arXiv tracker.
 - `assets/` contains images and PDFs.
 - `data/` contains tracker data.
+- `data/cumulative_counts.json` contains January-through-month totals from 2015 onward. The daily arXiv workflow regenerates it from completed months, and the site uses its cutoff to choose the latest available month.
+- `data/old_august_2026_tracker.json` is the frozen data for the **old august 2026 tracker**. The “See the previous tracker” link shows that version on the homepage; keep this snapshot unchanged when refreshing current data.
 - `data/upcoming-talks.md` is the public, generated copy of the Obsidian list.
 - `scripts/check_upcoming_talks.py` validates that generated Markdown before publishing.
 - `scripts/update_symplectic_stats.py` refreshes the tracker data.

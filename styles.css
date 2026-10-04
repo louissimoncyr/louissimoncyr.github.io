@@ -51,6 +51,12 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 
+a[href]:hover,
+button:hover,
+label[for]:hover {
+  font-weight: 700;
+}
+
 a:focus-visible,
 .btn:focus-visible {
   outline: 3px solid color-mix(in srgb, var(--accent) 38%, transparent);
@@ -225,6 +231,10 @@ button.btn:hover {
   gap: 0.45rem;
 }
 
+.ai-tools[hidden] {
+  display: none;
+}
+
 .ai-tools .small-meta {
   margin: 0;
   text-align: right;
@@ -237,6 +247,72 @@ button.btn:hover {
   margin: 0;
   padding: 0;
   border: 0;
+}
+
+.ai-period-switch[hidden],
+.month-picker[hidden] {
+  display: none;
+}
+
+.month-picker,
+.month-options {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.month-picker {
+  gap: 0 0.45rem;
+  margin-bottom: 0.35rem;
+}
+
+.month-options {
+  gap: 0 0.5rem;
+}
+
+.month-option {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.month-option[aria-pressed="true"],
+.month-option:hover {
+  font-weight: 700;
+}
+
+.month-option:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--focus) 45%, transparent);
+  outline-offset: 2px;
+}
+
+.tracker-mode-switch {
+  display: block;
+  margin: 0 0 0.8rem;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: left;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.tracker-mode-switch[hidden],
+#year-to-date-tracker[hidden] {
+  display: none;
+}
+
+.tracker-mode-switch:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--focus) 45%, transparent);
+  outline-offset: 2px;
 }
 
 .ai-period-switch input {
@@ -290,6 +366,10 @@ h3 {
   margin-top: 0;
 }
 
+.tracker-title {
+  margin: 0 0 0.7rem;
+}
+
 .kicker {
   margin: 0;
   text-transform: none;
@@ -305,13 +385,35 @@ h3 {
   padding: 1rem;
 }
 
-.chart-card {
-  margin-top: 1rem;
+#year-to-date-tracker > .chart-card,
+.monthly-tracker > .chart-card {
+  margin-top: 0.5rem;
+  padding: 0.5rem 1rem 0;
 }
 
 .annual-summary {
-  margin-top: 1.35rem;
-  padding-top: 1.15rem;
+  margin-top: 0.5rem;
+  padding-top: 0;
+}
+
+.annual-summary .table-scroll {
+  margin-top: 0;
+}
+
+.monthly-tracker {
+  display: flow-root;
+}
+
+.monthly-tracker[hidden] {
+  display: none;
+}
+
+#ai-month-context {
+  margin: 0.2rem 0 0;
+}
+
+.monthly-tracker > .small-meta {
+  margin: 0.2rem 0 0;
 }
 
 .annual-summary h2 {
@@ -323,12 +425,45 @@ h3 {
   margin-top: 1.5rem;
 }
 
+.ai-disclosure-summary {
+  margin-top: 1.3rem;
+  padding-top: 1.1rem;
+  border-top: 1px solid var(--line);
+}
+
+.ai-disclosure-summary[hidden] {
+  display: none;
+}
+
+.ai-disclosure-summary h2 {
+  margin: 0;
+}
+
 .ai-disclosure-chart {
   display: grid;
   grid-template-columns: minmax(9rem, 12rem) minmax(0, 1fr);
   gap: 1.5rem;
   align-items: center;
   margin: 1.25rem 0 0;
+}
+
+.ai-disclosure-summary .ai-disclosure-chart {
+  grid-template-columns: minmax(7rem, 9rem) minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+  margin-top: 0.75rem;
+}
+
+.ai-disclosure-summary figcaption > p:first-child {
+  margin: 0 0 0.55rem;
+}
+
+.ai-disclosure-summary .ai-disclosure-legend {
+  gap: 0.3rem;
+}
+
+.ai-disclosure-summary .ai-data-link {
+  margin-top: 0.7rem;
 }
 
 .ai-disclosure-pie {
@@ -373,6 +508,10 @@ h3 {
   background: var(--trend);
 }
 
+.ai-disclosure-swatch.limited-no-use {
+  background: var(--average);
+}
+
 .ai-disclosure-swatch.no-disclosure {
   background: var(--line);
 }
@@ -390,6 +529,10 @@ body.data-shell {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
   margin: 1.25rem 0;
+}
+
+.ai-audit-counts--four {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .ai-audit-counts p {
@@ -430,11 +573,36 @@ body.data-shell {
   overflow-x: auto;
   border-radius: 0;
   background: transparent;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg) transparent;
+}
+
+.table-scroll::-webkit-scrollbar {
+  height: 0.5rem;
+}
+
+.table-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.table-scroll::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--bg);
+  background-clip: padding-box;
+}
+
+.table-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-soft);
+  background-clip: padding-box;
+}
+
+.table-scroll::-webkit-scrollbar-button {
+  display: none;
 }
 
 .annual-table {
-  width: 100%;
-  min-width: 46rem;
+  width: auto;
   border-collapse: collapse;
   color: var(--text);
   background: transparent;
@@ -442,7 +610,8 @@ body.data-shell {
 }
 
 .annual-table caption {
-  padding: 0 0 0.65rem;
+  width: min(32rem, calc(100vw - 5rem));
+  padding: 0 0 0.3rem;
   color: var(--text);
   text-align: left;
   font-size: var(--font-normal);
@@ -451,12 +620,13 @@ body.data-shell {
 
 .annual-table th,
 .annual-table td {
-  padding: 0.65rem 0.8rem;
+  padding: 0.35rem 0.45rem;
   border: 1px solid var(--line);
   color: var(--text);
   background: transparent;
   text-align: center;
   white-space: nowrap;
+  font-size: var(--font-normal);
 }
 
 .annual-table th {
@@ -469,7 +639,7 @@ body.data-shell {
 }
 
 .annual-table th[scope='row'] {
-  min-width: 10rem;
+  min-width: 9rem;
   text-align: left;
   background: transparent;
 }
@@ -724,6 +894,15 @@ canvas {
   .ai-disclosure-chart,
   .ai-audit-counts {
     grid-template-columns: 1fr;
+  }
+
+  .ai-disclosure-summary .ai-disclosure-chart {
+    grid-template-columns: minmax(6rem, 7rem) minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+
+  .ai-disclosure-summary .ai-disclosure-pie {
+    max-width: 7rem;
   }
 
   .ai-disclosure-pie {

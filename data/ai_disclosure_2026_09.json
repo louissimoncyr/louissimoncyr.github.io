@@ -1,0 +1,1156 @@
+{
+  "audit_date_utc": "2026-10-04",
+  "selection": "First arXiv submission from 2026-09-01 through 2026-09-30 UTC, with math.SG among current arXiv categories. Cross-listed papers are included.",
+  "source_api_query": "cat:math.SG AND submittedDate:[202609010000 TO 202609302359]",
+  "source_api_url": "https://export.arxiv.org/api/query?search_query=cat%3Amath.SG+AND+submittedDate%3A%5B202609010000+TO+202609302359%5D&start=0&max_results=100&sortBy=submittedDate&sortOrder=ascending",
+  "review": "Current PDF versions and arXiv Comments were checked for explicit statements; an absence of a statement does not establish non-use.",
+  "counts": {
+    "no_ai_statement_found": 34,
+    "ai_use_disclosed": 34,
+    "full_work_no_use_statement": 3,
+    "limited_no_use_statement": 2
+  },
+  "papers": [
+    {
+      "id": "2609.00978",
+      "first_submitted_utc": "2026-09-01T09:35:15Z",
+      "title": "Towards Categorical Kähler Geometry",
+      "categories": [
+        "math.AG",
+        "math.RT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 110,
+      "pdf_sha256": "4a0b29e776d3a238b8ba08349438b17b674bddd15ea75ead1bb983855f65c3b5",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.01381",
+      "first_submitted_utc": "2026-09-01T15:15:16Z",
+      "title": "Floor-crossing for Legendrian Clasp Move",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 36,
+      "pdf_sha256": "a300ca8a068c32328c4c9ad3dd4e7396017feacc09a28ad4a6918e771152378b",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        6
+      ]
+    },
+    {
+      "id": "2609.01454",
+      "first_submitted_utc": "2026-09-01T15:57:58Z",
+      "title": "Lagrangian varieties from $q$-matrix models",
+      "categories": [
+        "hep-th",
+        "math-ph",
+        "math.QA",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 68,
+      "pdf_sha256": "5baa280b8a7b587da9d0d831b54284ddd34ea9bcdec2997338b3ca91c6945265",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.01791",
+      "first_submitted_utc": "2026-09-01T19:03:04Z",
+      "title": "Minimum $b_2$ of symplectic fillings of lens spaces",
+      "categories": [
+        "math.GT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 16,
+      "pdf_sha256": "df9078caa97522e32487fdeeccd02f6fb0730eeda45f8dae181f1d5fdd33684a",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.02699",
+      "first_submitted_utc": "2026-09-02T15:05:07Z",
+      "title": "Gauge theory and symplectic structures",
+      "categories": [
+        "math.DG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 44,
+      "pdf_sha256": "5983d1d713a4209d56f1db8fa1a762f9bf1651b190509b6bbb5851669e372b02",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.03257",
+      "first_submitted_utc": "2026-09-03T01:32:15Z",
+      "title": "On the trapping of ray families by mirrors",
+      "categories": [
+        "math.DS",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 6,
+      "pdf_sha256": "506814b682faaa6f411c4ea1788b0ce0071463c3da5770bd2690d8d5a9825531",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.03700",
+      "first_submitted_utc": "2026-09-03T11:38:58Z",
+      "title": "On the Finiteness of Anosov flows on $3$-manifolds via Contact Geometry",
+      "categories": [
+        "math.DS",
+        "math.GT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 26,
+      "pdf_sha256": "6ecd77c20a44b53e5851a2af250a3925628a41ef61b697df4b2ade765cca3bd4",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.05573",
+      "first_submitted_utc": "2026-09-04T07:22:44Z",
+      "title": "Go Fishing with Alice: Compatible Carrollian and Poisson Structures",
+      "categories": [
+        "math.DG",
+        "math-ph",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 21,
+      "pdf_sha256": "6738ba33b5cf5700c52d04c9c587b561c98e67ba51c2217595b815f7a350c680",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.06431",
+      "first_submitted_utc": "2026-09-06T07:12:17Z",
+      "title": "A contact-geometric variant of Smale's contraction",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 39,
+      "pdf_sha256": "ed3ce4defb57d86ac49a1318c0b3d817df6d68ffdbd1a286a70af482ba9bbba7",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.06709",
+      "first_submitted_utc": "2026-09-06T16:28:17Z",
+      "title": "Lusternik-Schnirelmann category of Lee Forms on locally conformally symplectic manifolds",
+      "categories": [
+        "math.SG",
+        "math.AT",
+        "math.GT"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 16,
+      "pdf_sha256": "806930a6851bd53c3850a4d8478454262adb3737e8aa43376537f23f9b11a11e",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        15
+      ]
+    },
+    {
+      "id": "2609.06821",
+      "first_submitted_utc": "2026-09-06T20:29:18Z",
+      "title": "Mirror Counts of Spectral Curves",
+      "categories": [
+        "math.SG",
+        "math.AG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 69,
+      "pdf_sha256": "130a48c2d1e85b1bce6dd3a485d263f5af1d24fa64dd27974e8cb8a518abc48a",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        5,
+        42
+      ]
+    },
+    {
+      "id": "2609.07123",
+      "first_submitted_utc": "2026-09-07T07:14:21Z",
+      "title": "Legendrian Reidemeister moves for the convex surface projection",
+      "categories": [
+        "math.SG",
+        "math.GT"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "f13eb4ff5977d8dd0c00a5f0e0a1713b485144d53d60e6ab98033573009f8f1d",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.28496",
+      "first_submitted_utc": "2026-09-07T12:49:01Z",
+      "title": "Bulk-deformed enumerative mirror symmetry for toric Fano surfaces",
+      "categories": [
+        "math.AG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 68,
+      "pdf_sha256": "df7bc64dd2fab0423a3386bb859c2b2b985d410faa5fbac6d72a6427310b39c3",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        5
+      ]
+    },
+    {
+      "id": "2609.07911",
+      "first_submitted_utc": "2026-09-07T19:22:37Z",
+      "title": "Spherical DAHA as an algebra of framed BPS states",
+      "categories": [
+        "hep-th",
+        "math-ph",
+        "math.QA",
+        "math.RT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 50,
+      "pdf_sha256": "91932e9b73b10adf08221a3ea1ee2aa81d92494bce55ecba9cbc29640d95bfc0",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.08557",
+      "first_submitted_utc": "2026-09-08T10:38:54Z",
+      "title": "Classification of Legendrian doubles and suspensions",
+      "categories": [
+        "math.SG",
+        "math.GT"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 25,
+      "pdf_sha256": "d408fc7cc5e99d9693714a0d799075f16411d20c7f162c45986decaacb673522",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.08617",
+      "first_submitted_utc": "2026-09-08T11:53:49Z",
+      "title": "Shifted Contact Structures on Exact Symplectic Fibrations",
+      "categories": [
+        "math.SG",
+        "math.AG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 27,
+      "pdf_sha256": "c81d1080ba0a96f9efa426059326c5eec70c23a32a9394c7c6bb134b8062fbc8",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.09633",
+      "first_submitted_utc": "2026-09-09T02:48:34Z",
+      "title": "Representation Varieties of Stacks and Trace Maps",
+      "categories": [
+        "math.AG",
+        "math.KT",
+        "math.RT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 31,
+      "pdf_sha256": "123d5b984361adc478bfbd1f27dbaf0ccd65e35a05d3043045cb80bd17220bcc",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.09747",
+      "first_submitted_utc": "2026-09-09T05:47:48Z",
+      "title": "Euler-Poincare Reduction: A Geometric Treatment of the Relativistic Spinning Particle",
+      "categories": [
+        "math-ph",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 13,
+      "pdf_sha256": "75d27e25c71d00e9780f979d67d197068fb1f4eb29eff24c219beaededa69ac7",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.10214",
+      "first_submitted_utc": "2026-09-09T14:14:53Z",
+      "title": "Extended Future Tube Conjecture for Unipotent Subgroups",
+      "categories": [
+        "math.SG",
+        "math.CV"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "48f83a85191225d43061a82be718044193ef68f874355aa42f0196e64e8f6c91",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.10769",
+      "first_submitted_utc": "2026-09-09T19:18:16Z",
+      "title": "Symplecto-rigidity and bootstrap for Anosov symplectomorphisms and contact Anosov flows",
+      "categories": [
+        "math.DS",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 14,
+      "pdf_sha256": "7c3e02f2d3bbb695ef2e1baeb6970b6640148cfc08288921c7cbe0e3db7db908",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        3
+      ]
+    },
+    {
+      "id": "2609.10909",
+      "first_submitted_utc": "2026-09-09T23:36:50Z",
+      "title": "The First Correction Term in the Asymptotic Expansion of Bohr--Sommerfeld Lagrangian States",
+      "categories": [
+        "math.SG",
+        "math.CV",
+        "math.DG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 17,
+      "pdf_sha256": "999f7a53144aa605e250c2fd887fc316314ad92663976447a0792312f30583e7",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        3
+      ]
+    },
+    {
+      "id": "2609.11165",
+      "first_submitted_utc": "2026-09-10T07:11:16Z",
+      "title": "The kinematic structures and the inertial geometry of a moving charge",
+      "categories": [
+        "math-ph",
+        "math.DG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 33,
+      "pdf_sha256": "9fe4d2fe5068ec5767eedbb05f14d867d2880dcaf88aa9b6f361e21d53e22fee",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.11727",
+      "first_submitted_utc": "2026-09-10T15:42:52Z",
+      "title": "Braided Multisections and Symplectic Four-Manifolds with the Rational Cohomology of $S^2\\times S^2$",
+      "categories": [
+        "math.GT",
+        "math.AG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 23,
+      "pdf_sha256": "dd31667f4a66d2ace5adef9e687531ebcc0ba966cc5652c2bd69e69a98f13b0a",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        22
+      ]
+    },
+    {
+      "id": "2609.11803",
+      "first_submitted_utc": "2026-09-10T16:55:16Z",
+      "title": "Symplectic Surface Summing and Negative Spheres",
+      "categories": [
+        "math.GT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "faa4bd2930b8e8b6fbe59caa2f5fba612a95f0210f97bc3133d4102fe180a8ee",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        2
+      ]
+    },
+    {
+      "id": "2609.12033",
+      "first_submitted_utc": "2026-09-10T16:57:10Z",
+      "title": "Moment Lagrangians, unobstructedness and symplectic groupoids",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "8d8e20e489b9ff2b89912f75f7eac60a2dc03f04bebe2b4a52995f497e70ace7",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.12589",
+      "first_submitted_utc": "2026-09-11T08:43:41Z",
+      "title": "On symplectic aspects of $μ$-equivalence of a class of isolated hypersurface singularities",
+      "categories": [
+        "math.AG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "ef430e69181cc43a096b022338c427634af7cc440350831e0e6c5fd12da2ef01",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.16043",
+      "first_submitted_utc": "2026-09-12T07:42:28Z",
+      "title": "Gauged AKSZ sigma models",
+      "categories": [
+        "math-ph",
+        "hep-th",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 35,
+      "pdf_sha256": "3bc01ac20fbafc6572dd5f0bee5f377d92f6bcc87f3863cc5ffd59bc6d180381",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.17603",
+      "first_submitted_utc": "2026-09-13T16:25:11Z",
+      "title": "$\\mathbb{Z}$-Torus Exteriors and Small Knot-Surgery Four-Manifolds",
+      "categories": [
+        "math.GT",
+        "math.AG",
+        "math.AT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 36,
+      "pdf_sha256": "6235c77924c02b562ebb84b3df0a261de6f57039358c5392f2d9cee096ba3fd0",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        34
+      ]
+    },
+    {
+      "id": "2609.16112",
+      "first_submitted_utc": "2026-09-14T18:00:00Z",
+      "title": "Symplectic Yang-Mills Theory",
+      "categories": [
+        "math.SG",
+        "math.DG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 43,
+      "pdf_sha256": "1dcddef2e00010a86342e18e84f3197929931b3f6df6633c408ae7dc4bcf2400",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.16176",
+      "first_submitted_utc": "2026-09-14T18:10:16Z",
+      "title": "Existence of a positive hyperbolic orbit in three-dimensional Reeb flows",
+      "categories": [
+        "math.SG",
+        "math.DS"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 22,
+      "pdf_sha256": "35f02a6a6879138ba4010ee534704ae3cb9001a3282920cfd4df8a5896fcd786",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        5
+      ]
+    },
+    {
+      "id": "2609.25064",
+      "first_submitted_utc": "2026-09-15T00:29:12Z",
+      "title": "Real Inertia, Phase Obstructions, and de Rham Algebras for Orientifolds",
+      "categories": [
+        "math.SG",
+        "math.DG"
+      ],
+      "pdf_version": "v2",
+      "pdf_pages": 42,
+      "pdf_sha256": "182bbb90f87992755616f0bfe8f9879bc39d50bc93bd780dbf59670a3e0c4389",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.17634",
+      "first_submitted_utc": "2026-09-15T11:08:34Z",
+      "title": "Xiao's Genus-Two Fibration: Branched Covers and Braid Monodromy",
+      "categories": [
+        "math.AG",
+        "math.GT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 25,
+      "pdf_sha256": "bb63cdfbbe9f74cd8ea87eebd152c71e1a99f7825bd40e2bfd277d27131de9c6",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        24
+      ]
+    },
+    {
+      "id": "2609.17871",
+      "first_submitted_utc": "2026-09-15T21:53:47Z",
+      "title": "Gurtas Lefschetz Fibrations, Rational Blowdowns, and Exotic Symplectic Four-Manifolds",
+      "categories": [
+        "math.GT",
+        "math.AG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 12,
+      "pdf_sha256": "8a9a8257107e19682f1e934508f616beef6f696e6c9e2d26bc4f213234ff9330",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        12
+      ]
+    },
+    {
+      "id": "2609.18492",
+      "first_submitted_utc": "2026-09-16T11:29:22Z",
+      "title": "Families of knots that cannot be made Legendrian parametrically",
+      "categories": [
+        "math.GT",
+        "math.DG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "334c0bcee7688f3253dba6bdb9e1deb5d04044becddaa20d447b73267d833d3e",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        9
+      ]
+    },
+    {
+      "id": "2609.19427",
+      "first_submitted_utc": "2026-09-16T21:04:25Z",
+      "title": "Hypersurfaces containing involutive cones in projective symplectic spaces",
+      "categories": [
+        "math.AG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 26,
+      "pdf_sha256": "8643551fd81c791edfb6407fef07d815647ab65127b9e128ec2e77b43af72a71",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        23,
+        24
+      ]
+    },
+    {
+      "id": "2609.19692",
+      "first_submitted_utc": "2026-09-17T04:39:49Z",
+      "title": "Microlocal perverse schobers and Radon transform",
+      "categories": [
+        "math.AG",
+        "math.AT",
+        "math.CT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 80,
+      "pdf_sha256": "9f8fe1ada2352f5d31bfc3a213712e78d5d93376043e93a38519b83eba4113e3",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        11
+      ]
+    },
+    {
+      "id": "2609.20159",
+      "first_submitted_utc": "2026-09-17T12:49:39Z",
+      "title": "Special Lagrangian cones in Deep Learning",
+      "categories": [
+        "math.DG",
+        "cs.LG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 16,
+      "pdf_sha256": "b24c59fd29278f540a1644c14506651127f14af16329c79fc1c566515b7166f8",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        15
+      ]
+    },
+    {
+      "id": "2609.21620",
+      "first_submitted_utc": "2026-09-18T11:00:55Z",
+      "title": "Lidskii theorem for directional derivatives of symplectic eigenvalues",
+      "categories": [
+        "math.FA",
+        "math.SG",
+        "math.SP"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 8,
+      "pdf_sha256": "1ce5b0ce2f155804add82e6b8ef0c34300b0e2b1ff168714588838ab53b1f4cd",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        8
+      ]
+    },
+    {
+      "id": "2609.21720",
+      "first_submitted_utc": "2026-09-18T12:55:22Z",
+      "title": "On intrinsic homological mirror symmetry for toric degenerations",
+      "categories": [
+        "math.SG",
+        "math.AG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 89,
+      "pdf_sha256": "149b7a0f4e2f6077bdaba73de9a7cdaa8ee953b48dabf2f9865bd50f34b8509f",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.21914",
+      "first_submitted_utc": "2026-09-18T15:37:09Z",
+      "title": "On the atomic decomposition of complete intersection in flag varieties",
+      "categories": [
+        "math.AG",
+        "math.DG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 109,
+      "pdf_sha256": "653eeced68ff853efd0cf382fce2865e518d6988deec143b3448381a7d814cde",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "id": "2609.21931",
+      "first_submitted_utc": "2026-09-18T15:51:18Z",
+      "title": "Periodic Magnetic Geodesics with Every Low Energy: Existence and Localization",
+      "categories": [
+        "math.SG",
+        "math.CA",
+        "math.DG",
+        "math.DS"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 40,
+      "pdf_sha256": "e315518fa1b65f637da79b43fdde4326449a39f8a97948bfc12787c515d7d932",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        12
+      ]
+    },
+    {
+      "id": "2609.23034",
+      "first_submitted_utc": "2026-09-19T14:08:40Z",
+      "title": "Higher-order and non-geometric symmetries and Noether's theorem in k-cosymplectic Hamiltonian field theory",
+      "categories": [
+        "math-ph",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 23,
+      "pdf_sha256": "393ef1de0a437943db136707332bd3b1750485dbd7eb51c97c8deec5a2da05b5",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        19
+      ]
+    },
+    {
+      "id": "2609.23884",
+      "first_submitted_utc": "2026-09-20T21:42:06Z",
+      "title": "Kodaira fibres and wrapped Floer cohomology",
+      "categories": [
+        "math.SG",
+        "math.AG",
+        "math.RT"
+      ],
+      "pdf_version": "v3",
+      "pdf_pages": 42,
+      "pdf_sha256": "2bc0e760c7686895cd034d21c85b7778752cf8972d4dac4ae28977ad09f30928",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        6
+      ]
+    },
+    {
+      "id": "2609.25316",
+      "first_submitted_utc": "2026-09-21T19:04:23Z",
+      "title": "A Polytopal Realization of Higher-Categorical Associahedra",
+      "categories": [
+        "math.CO",
+        "math.AG",
+        "math.MG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 9,
+      "pdf_sha256": "d443a923cbf4b1dd3f0c8e247deb264b852d1fe07e8e56bd9ebcc090a395ec74",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        1,
+        9
+      ]
+    },
+    {
+      "id": "2609.25465",
+      "first_submitted_utc": "2026-09-21T22:44:45Z",
+      "title": "KAM splittings and equidistributed periodic orbits for stable hypersurfaces",
+      "categories": [
+        "math.SG",
+        "math.DS"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 40,
+      "pdf_sha256": "3b9972fccff689ab7f5581c5f54cc30409b2b9a24b6b3ef333dfe8b168b0b085",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        5
+      ]
+    },
+    {
+      "id": "2609.26584",
+      "first_submitted_utc": "2026-09-22T15:29:46Z",
+      "title": "Welschinger invariants and the Conway polynomial",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 7,
+      "pdf_sha256": "0b16629964b3634b88cbb82d50aee8870d780569347c289bedf034a733e91382",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.27738",
+      "first_submitted_utc": "2026-09-23T11:53:45Z",
+      "title": "Ehrhart theorem for integral-integral affine manifolds with corners",
+      "categories": [
+        "math.DG",
+        "math.CO",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 15,
+      "pdf_sha256": "b75c73b9e18096425e0cce0f6fc0e48c0f7c147fd4f49067d8f786e4bfaf982b",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.28373",
+      "first_submitted_utc": "2026-09-23T16:48:36Z",
+      "title": "A Multidimensional Birkhoff Theorem for some $C^0$ Lagrangians",
+      "categories": [
+        "math.SG",
+        "math.DS"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 73,
+      "pdf_sha256": "7b3e95eed953384d0260da4db19e48d97aeca126df3c979fa98b4177bbccd073",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        15
+      ]
+    },
+    {
+      "id": "2609.28907",
+      "first_submitted_utc": "2026-09-24T01:40:14Z",
+      "title": "On symplectic aspects of $SU(2)$ character varieties for punctured surfaces",
+      "categories": [
+        "math.GT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 76,
+      "pdf_sha256": "374c115e73dc7769ef2aa20212a921d08e3b6986a68165ed082d52015a8e35c6",
+      "classification": "full_work_no_use_statement",
+      "evidence_pdf_pages": [
+        10
+      ]
+    },
+    {
+      "id": "2609.30146",
+      "first_submitted_utc": "2026-09-24T17:11:21Z",
+      "title": "On the chamber decomposition of a Hamiltonian torus action",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 23,
+      "pdf_sha256": "63a84c373a706dcf704bbf8053f678a65139af0ada97a8510dc8b40c82d4a223",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        4
+      ]
+    },
+    {
+      "id": "2609.30182",
+      "first_submitted_utc": "2026-09-24T17:29:02Z",
+      "title": "Derivative links in contact topology",
+      "categories": [
+        "math.SG",
+        "math.GT"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 28,
+      "pdf_sha256": "7ff1323038e3873de47ac192765b325aba4444644d1e15d20dfd415aae0f5748",
+      "classification": "full_work_no_use_statement",
+      "evidence_pdf_pages": [
+        5
+      ]
+    },
+    {
+      "id": "2609.30406",
+      "first_submitted_utc": "2026-09-24T18:08:00Z",
+      "title": "Planar Contact Structures with Calabi-Yau Fillings and Topological Quantum Computation",
+      "categories": [
+        "math.GT",
+        "math-ph",
+        "math.SG",
+        "quant-ph"
+      ],
+      "pdf_version": "v2",
+      "pdf_pages": 18,
+      "pdf_sha256": "a9c97dd1135bb7bacfbe18863115eae9fb7ec3f1fe8c1311bd3cddbe49de8a57",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        17
+      ],
+      "evidence_in_arxiv_comments": true
+    },
+    {
+      "id": "2609.38214",
+      "first_submitted_utc": "2026-09-25T18:20:23Z",
+      "title": "H-principle for corank two distributions of odd rank and maximal first Kronecker index",
+      "categories": [
+        "math.DG",
+        "math.OC",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 29,
+      "pdf_sha256": "260ea2e695cce35afea9f1edb31ae57b94c363d5dedc6dbf88e1ff94b61e3a07",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        28
+      ]
+    },
+    {
+      "id": "2609.32553",
+      "first_submitted_utc": "2026-09-26T12:30:37Z",
+      "title": "Morphisms of double Lie groupoids: a simplicial approach",
+      "categories": [
+        "math.DG",
+        "math.CT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 54,
+      "pdf_sha256": "41de310254d0586944aed1e40e75d5f203b4c630b02f0483ca7f81840777d692",
+      "classification": "limited_no_use_statement",
+      "evidence_pdf_pages": [
+        5
+      ],
+      "limited_no_use_scope": "diagrams only"
+    },
+    {
+      "id": "2609.33063",
+      "first_submitted_utc": "2026-09-27T00:51:01Z",
+      "title": "Non-degenerate bilinear forms and left-symmetric structures",
+      "categories": [
+        "math.RA",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 17,
+      "pdf_sha256": "c972e7b64ced42b212e9b8f99b425a19170400d29caafaf29a0a5b55c9b55916",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.33626",
+      "first_submitted_utc": "2026-09-27T14:41:46Z",
+      "title": "A Smooth Hamiltonian Diffeomorphism with Two Fixed Points on $S^2\\times S^2$",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 17,
+      "pdf_sha256": "9f950ae4c9f7d07a8e3dee5b10e7375f2ba1b378788eb351077e5507e9029029",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "2609.33894",
+      "first_submitted_utc": "2026-09-27T20:17:31Z",
+      "title": "Modulation spaces: from Feichtinger's original definition to modern Gabor and symplectic characterizations",
+      "categories": [
+        "math.FA",
+        "math-ph",
+        "math.AP",
+        "math.RT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 42,
+      "pdf_sha256": "c66669b1ab54ba5e7d9915f4bd993c6bdcc9c4dd7252a4af474c44bf65c9bc80",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.34193",
+      "first_submitted_utc": "2026-09-28T03:06:42Z",
+      "title": "A proper dg algebra which does not cogenerate",
+      "categories": [
+        "math.RA",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 22,
+      "pdf_sha256": "4cbf6672280fe008ab6e56e5f0f0549b7039103e97ade95a625d96ee24ec3729",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        1
+      ]
+    },
+    {
+      "id": "2609.34923",
+      "first_submitted_utc": "2026-09-28T11:25:34Z",
+      "title": "Lagrangian mean curvature flow in the Kummer K3 surface",
+      "categories": [
+        "math.DG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 15,
+      "pdf_sha256": "1455fc89a85f904078b78f490db1eba156e7cf57616f002aca6a3d88296d926e",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.34961",
+      "first_submitted_utc": "2026-09-28T11:46:57Z",
+      "title": "Braid Stability and a Floer theory of Braid Isotopies",
+      "categories": [
+        "math.SG",
+        "math.DS",
+        "math.GT"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 67,
+      "pdf_sha256": "9d0ab23cc6ff91881c32332f49c8bd54b856ac56bcc2da834da076293d7a2583",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        8
+      ]
+    },
+    {
+      "id": "2609.35048",
+      "first_submitted_utc": "2026-09-28T12:43:43Z",
+      "title": "Non-decomposable cobordisms via Lagrangian moves",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 19,
+      "pdf_sha256": "9b664fdfd20ec651a133b5b872cde4cb88397607b00dc567fc41d155ecf3ea58",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.35209",
+      "first_submitted_utc": "2026-09-28T14:03:07Z",
+      "title": "Quantitative symplectic topology of Katok's examples and equivariant symplectic embeddings",
+      "categories": [
+        "math.SG",
+        "math.DG",
+        "math.DS"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 25,
+      "pdf_sha256": "fdb00761234f45c96f6282fef1ffc7f654684463a70ddd0133799c7e1789bf14",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.35435",
+      "first_submitted_utc": "2026-09-28T15:38:58Z",
+      "title": "Orbifold Mapping Spaces via Bibundles",
+      "categories": [
+        "math.SG",
+        "math.DG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 26,
+      "pdf_sha256": "c04625fb33ae8d51d801469907ebf0487629c9c0bf05830e37da02007584123b",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        3
+      ]
+    },
+    {
+      "id": "2609.35565",
+      "first_submitted_utc": "2026-09-28T16:30:15Z",
+      "title": "Fukaya category with supports",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 76,
+      "pdf_sha256": "d4d943087d8921e7bc9b22c7448c0d797b8e1327ceeaf82c4d87b98ffe87a9ca",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        9,
+        10
+      ]
+    },
+    {
+      "id": "2609.35647",
+      "first_submitted_utc": "2026-09-28T17:15:43Z",
+      "title": "Symplectic filtering of Hamiltonian dynamics with moving sensors",
+      "categories": [
+        "math.NA",
+        "math.DS",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 37,
+      "pdf_sha256": "0064de3c13d4c22c01249e9dfbbba2124786b4ebf0c1409d4e96cdf8bf25c549",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.37403",
+      "first_submitted_utc": "2026-09-29T12:42:06Z",
+      "title": "The derived Picard group of Fukaya categories of closed surfaces",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 21,
+      "pdf_sha256": "fc2a1cba5121c339261bddb101fcd010cdfc1e24d7f8198beda3c5cb9d3c950a",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        3
+      ]
+    },
+    {
+      "id": "2609.37794",
+      "first_submitted_utc": "2026-09-29T15:21:19Z",
+      "title": "The Ekeland--Hofer--Zehnder Capacity of rotated $L_p$-Ellipsoid",
+      "categories": [
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 25,
+      "pdf_sha256": "b42c598a5d521491d4cd426257d72b9711e1803c2a9c88e75eb51f434a832d98",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.38703",
+      "first_submitted_utc": "2026-09-30T00:32:45Z",
+      "title": "Fedosov manifolds with parallel symplectic Weyl curvature",
+      "categories": [
+        "math.DG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 10,
+      "pdf_sha256": "9fc840e2fb434ec742c533b65b7bcece708733a9758133099d1500147270524a",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.39554",
+      "first_submitted_utc": "2026-09-30T11:52:25Z",
+      "title": "A Thomas-Yau-Joyce result for Lagrangian spheres in K3 surfaces",
+      "categories": [
+        "math.DG",
+        "math.AG",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 25,
+      "pdf_sha256": "cef97e2410ad97cf869e048b1119e03fc76c048016a670ee101882e29e995414",
+      "classification": "full_work_no_use_statement",
+      "evidence_pdf_pages": [
+        5
+      ]
+    },
+    {
+      "id": "2610.00409",
+      "first_submitted_utc": "2026-09-30T14:02:25Z",
+      "title": "Braided Surfaces and Small Exotic 4-Manifolds",
+      "categories": [
+        "math.GT",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 26,
+      "pdf_sha256": "26b6246bf187ff2c79c69074c14ddae9b3c160ef978223fcbc09d7065806240a",
+      "classification": "ai_use_disclosed",
+      "evidence_pdf_pages": [
+        26
+      ]
+    },
+    {
+      "id": "2609.39951",
+      "first_submitted_utc": "2026-09-30T15:24:30Z",
+      "title": "Spectral numbers in Tate Rabinowitz Floer homology",
+      "categories": [
+        "math.SG",
+        "math-ph"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 22,
+      "pdf_sha256": "89c25602d2868a1fbaa567645a154248fd1d0c0b85b549582c05d370820187b6",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    },
+    {
+      "id": "2609.40175",
+      "first_submitted_utc": "2026-09-30T17:02:36Z",
+      "title": "Derivatives of symplectic spectral functions",
+      "categories": [
+        "math.FA",
+        "math.SG",
+        "math.SP"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 37,
+      "pdf_sha256": "6b76247a5f4ee7514e75bdea380b8871e1d23f077defe3a204390e65646f15ee",
+      "classification": "limited_no_use_statement",
+      "evidence_pdf_pages": [
+        35
+      ],
+      "limited_no_use_scope": "writing process only"
+    },
+    {
+      "id": "2610.00696",
+      "first_submitted_utc": "2026-09-30T20:38:24Z",
+      "title": "A Pick-type theorem for halfway-lattice polygons",
+      "categories": [
+        "math.CO",
+        "math.SG"
+      ],
+      "pdf_version": "v1",
+      "pdf_pages": 15,
+      "pdf_sha256": "4f9011009864e8425f383be910ab3c43efa505f7632212568fd65c1ac33f9165",
+      "classification": "no_ai_statement_found",
+      "evidence_pdf_pages": []
+    }
+  ]
+}
