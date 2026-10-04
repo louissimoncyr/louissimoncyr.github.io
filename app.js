@@ -626,6 +626,7 @@ function renderTracker() {
   if (!aiImpactData.cumulative || !aiImpactData.oldMonthRows.length) return;
   const oldView = aiImpactData.view === "old";
   document.getElementById("updated-month-picker").hidden = oldView;
+  document.getElementById("ai-tools").hidden = !oldView;
   document.getElementById("ai-comparison-note").hidden = !oldView;
   const monthlyTracker = document.getElementById("monthly-tracker");
   if (monthlyTracker) monthlyTracker.hidden = oldView;

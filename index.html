@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#f7e1bd" />
   <title>Louis-Simon Cyr</title>
   <link rel="icon" type="image/png" href="assets/quebec-flag-icon-spear.png" />
-  <link rel="stylesheet" href="styles.css?v=20261004-6" />
+  <link rel="stylesheet" href="styles.css?v=20261004-7" />
 </head>
 <body class="tracker-shell">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -28,6 +28,7 @@
 
   <main id="content" class="content">
     <section id="tracker" class="section tracker-section" aria-labelledby="tracker-title">
+      <h1 id="tracker-title" class="tracker-title">math.SG Submission Tracker</h1>
       <div id="updated-month-picker" class="month-picker" role="group" aria-label="Choose month for both comparisons">
         <span>Month:</span>
         <span id="month-options" class="month-options"></span>
@@ -35,10 +36,9 @@
 
       <div class="section-head">
         <div>
-          <h1 id="tracker-title" class="sr-only">Symplectic arXiv tracker</h1>
           <p id="ai-month-context" class="small-meta" aria-live="polite">Loading paper totals…</p>
         </div>
-        <div class="ai-tools">
+        <div id="ai-tools" class="ai-tools" hidden>
           <fieldset id="ai-period-switch" class="ai-period-switch" data-selected="month" hidden>
             <legend class="sr-only">Show comparison by</legend>
             <span class="ai-period-punctuation" aria-hidden="true">[</span>
@@ -78,8 +78,7 @@
         <p id="ai-comparison-note" class="small-meta" hidden>Loading year-to-year changes…</p>
       </div>
 
-      <section id="monthly-tracker" class="monthly-tracker" aria-labelledby="monthly-tracker-title">
-        <h2 id="monthly-tracker-title">Monthly comparison</h2>
+      <section id="monthly-tracker" class="monthly-tracker" aria-label="Monthly paper comparison">
         <p id="monthly-month-context" class="small-meta" aria-live="polite">Loading monthly paper totals…</p>
         <div class="card chart-card">
           <canvas id="monthly-impact-chart" height="300" width="900" aria-label="Paper totals in the selected month by year."></canvas>
@@ -209,7 +208,7 @@
     <p style="margin:0;text-align:right;">AI is used to maintain this website</p>
   </footer>
 
-  <script src="app.js?v=20261004-5"></script>
+  <script src="app.js?v=20261004-6"></script>
   <script>
     const siteUpdated = document.getElementById("site-last-updated");
     const siteUpdatedDate = new Date(document.lastModified);
