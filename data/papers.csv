@@ -10422,7 +10422,7 @@ id,published,title,categories
 2609.37794,2026-09-29,The Ekeland--Hofer--Zehnder Capacity of rotated $L_p$-Ellipsoid,math.SG
 2609.38703,2026-09-30,Fedosov manifolds with parallel symplectic Weyl curvature,math.DG math.SG
 2609.39554,2026-09-30,A Thomas-Yau-Joyce result for Lagrangian spheres in K3 surfaces,math.DG math.AG math.SG
-2609.39951,2026-09-30,Spectral numbers in Tate Rabinowitz Floer homology,math.SG math-ph
+2609.39951,2026-09-30,Spectral Numbers in Tate Rabinowitz Floer Homology,math.SG math-ph
 2609.40175,2026-09-30,Derivatives of symplectic spectral functions,math.FA math.SG math.SP
 2610.00409,2026-09-30,Braided Surfaces and Small Exotic 4-Manifolds,math.GT math.SG
 2610.00696,2026-09-30,A Pick-type theorem for halfway-lattice polygons,math.CO math.SG
@@ -10449,7 +10449,7 @@ id,published,title,categories
 2610.10078,2026-10-07,Exact fillings using universal covers in Floer theory,math.SG
 2610.10151,2026-10-07,Integration and quantization of 1-shifted coisotropics,math.SG math.DG math.QA
 2610.10747,2026-10-07,Bounds on Legendrian Double Twist Knots,math.GT math.SG
-2610.10804,2026-10-07,"Motion groups, Legendrian links, and non-trivial loops of embeddings",math.SG
+2610.10804,2026-10-07,"Motion groups, Legendrian links, and non-trivial loops of embeddings",math.SG math.GR math.GT
 2610.10902,2026-10-07,A description of the canonical symplectic form of the cotangent bundle of a generalized flag manifold,math.DG math.SG
 2610.11189,2026-10-08,Classical cylindrical contact homology is not invariant over $\bZ$,math.SG
 2610.11243,2026-10-08,Bi-contact plugs and dynamical hyperbolicity,math.SG math.DS math.GT
@@ -10468,3 +10468,7 @@ id,published,title,categories
 2610.17835,2026-10-13,Learning Hamiltonians from Trajectory Data with Kernel Methods,math.NA math.SG
 2610.17890,2026-10-13,Metaplectic-c prequantizations and the Einstein--Brillouin--Keller quantizability condition,math.SG math-ph math.DG
 2610.18489,2026-10-13,Irrational families of Fano weighted complete intersection fourfolds,math.AG math.SG
+2610.19170,2026-10-13,Homological reduction of Courant algebroids,math.SG
+2610.19333,2026-10-14,Algebraic overtwistedness of contact $(+1)$-surgeries via augmented Floer theories,math.SG math.GT
+2610.20153,2026-10-14,On the generalized cohomologies of almost abelian solvmanifolds,math.DG math.SG
+2610.20177,2026-10-14,Quantization of positive Lagrangians,math.SG hep-th math.DG
