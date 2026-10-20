@@ -10474,7 +10474,7 @@ id,published,title,categories
 2610.20177,2026-10-14,Quantization of positive Lagrangians,math.SG hep-th math.DG
 2610.20911,2026-10-14,Symplectic groupoid multiplication and Poisson integrators,math.SG math.DG
 2610.21076,2026-10-15,A Proof of the Area Vanishing Square Peg Conjecture,math.SG
-2610.21092,2026-10-15,Positivity of Wahl defects and representations from index-one covers,math.AG math.SG
+2610.21092,2026-10-15,Positivity of Wahl defects and specialization of reflexive powers of the canonical sheaf,math.AG math.SG
 2610.21093,2026-10-15,Nonlinear neighborhoods of smooth curves and arbitrarily negative Wahl defects,math.AG math.SG
 2610.21153,2026-10-15,Holomorphic Triangles in the Heegaard Floer Pillowcase,math.GT math.SG
 2610.21960,2026-10-15,The derived category of a generalized complex torus,math.DG math-ph math.AG math.SG
@@ -10483,3 +10483,14 @@ id,published,title,categories
 2610.22782,2026-10-16,Exotic symplectomorphisms of strong fillings,math.SG
 2610.23711,2026-10-16,Finite Cyclic Fundamental Groups and Exotic Universal Covers from the Cartwright--Steger Surface,math.GT math.AG math.SG
 2610.23794,2026-10-16,Symplectic Lie groups and nilmanifolds associated with acyclic quivers,math.SG math.CO math.DG
+2610.24376,2026-10-17,The Four Periodic Inscription Problem,math.SG
+2610.24543,2026-10-17,Equivariant Moment Maps and the Ricci Cocycle in Weighted Fujiki--Donaldson Theory,math.DG math.SG
+2610.24557,2026-10-17,Contractible Closed Reeb Orbits on Prequantization Bundles under Weak Index Conditions,math.SG
+2610.24825,2026-10-17,Kähler-Ricci Flow is Symplectic Deflation plus an Exact Symplectic Deformation,math.DG math.AG math.SG
+2610.24862,2026-10-17,Symplectophagy,math.SG
+2610.24922,2026-10-18,Stein fillable contact structures with half Giroux torsion,math.GT math.SG
+2610.24936,2026-10-18,Weighted homogeneous surface singularities admitting rational homology disk smoothings,math.AG math.SG
+2610.25023,2026-10-18,"Integrable building blocks for symplectic neural networks: learned-type layers, fiber-preserving layers, and what a single layer can do",math.NA cs.LG math.SG
+2610.25042,2026-10-18,Moser Regularization of the CR3BP for Symmetric Orbits: Bifurcation Networks of Lunar Orbits,math.DS astro-ph.EP math.SG
+2610.25654,2026-10-19,The classification of taut surface singularities via representations from logarithmic vector fields,math.AG math.SG
+2610.25878,2026-10-19,Non-planar contact structures with Calabi-Yau Fillings and topological quantum computation,math.GT math-ph math.SG quant-ph
