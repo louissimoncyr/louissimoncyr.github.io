@@ -10469,6 +10469,7 @@ id,published,title,categories
 2610.17890,2026-10-13,Metaplectic-c prequantizations and the Einstein--Brillouin--Keller quantizability condition,math.SG math-ph math.DG
 2610.18489,2026-10-13,Irrational families of Fano weighted complete intersection fourfolds,math.AG math.SG
 2610.19170,2026-10-13,Homological reduction of Courant algebroids,math.SG
+2610.30164,2026-10-13,A Künneth theorem for the cyclic homology of A-infinity algebras,math.KT math.QA math.SG
 2610.19333,2026-10-14,Algebraic overtwistedness of contact $(+1)$-surgeries via augmented Floer theories,math.SG math.GT
 2610.20153,2026-10-14,On the generalized cohomologies of almost abelian solvmanifolds,math.DG math.SG
 2610.20177,2026-10-14,Quantization of positive Lagrangians,math.SG hep-th math.DG
@@ -10497,3 +10498,7 @@ id,published,title,categories
 2610.28469,2026-10-20,On the stability of displacement energy in toric manifolds,math.SG
 2610.29017,2026-10-21,Isotropy sets of periodic geodesic flows on three dimensional manifolds,math.DG math.SG
 2610.29917,2026-10-21,Multiplicity of brake Reeb orbits on real prequantization bundles,math.SG math.DS
+2610.30395,2026-10-21,The symplectic leaves of the affine Poisson $C^\infty$-scheme associated with a singular subalgebroid,math.SG math-ph math.AG math.DG
+2610.30976,2026-10-22,"Rigidity, flexibility, and a sign error",math.SG math.AG
+2610.31600,2026-10-22,SympFormer: Inertial Attention Blocks from Damped Hamiltonian Dynamics on Spaces of Probability Measures,math.SG math.AP math.DG math.DS stat.ML
+2610.31619,2026-10-22,"Leafrians, Poisson structures, and Frobenius splittings on moduli spaces",math.AG math.AC math.SG
