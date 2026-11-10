@@ -10548,6 +10548,7 @@ id,published,title,categories
 2611.06031,2026-11-04,Toward Shifted symplectic Chiralization: Deformation of Courant Algebroids,math.QA math-ph math.SG
 2611.06574,2026-11-04,Floer theory on based loops and fundamental groups of Lagrangians in $\mathbb{C}^n$,math.SG math.AT math.GT
 2611.07202,2026-11-04,Local Homological Mirror Symmetry,math.SG math.AG
+2611.10002,2026-11-04,Cobordism maps and Atiyah-Floer isomorphisms for framed instanton homology I,math.DG math.SG
 2611.07455,2026-11-05,Worldsheet skeins and block decomposition of quivers,hep-th math-ph math.GT math.QA math.SG
 2611.07466,2026-11-05,Functors from Lagrangian correspondences for wrapped sheaf categories,math.SG math.AG
 2611.07799,2026-11-05,Holomorphic planes in $M\times \mathbb{T}^2$ from weakly exact Lagrangians in $M$,math.SG
@@ -10555,3 +10556,12 @@ id,published,title,categories
 2611.08248,2026-11-05,Shifted Lagrangian geometry of curves in Radko surfaces,math.SG math.DG math.QA
 2611.09034,2026-11-06,The dynamics through the first two Lagrange necks in the small-mass restricted three-body problem,math-ph math.DS math.SG
 2611.09694,2026-11-06,On the strong Arnold conjecture for Grassmannians,math.SG
+2611.10108,2026-11-06,Lagrangian tori in the three-dimensional quadric and mirror symmetry,math.SG
+2611.10270,2026-11-06,Full fillings at the accumulation point and triangular limits of almost toric diagrams,math.SG
+2611.10328,2026-11-06,Liftable braid factorizations from line arrangements: Hironaka's relations and a Zariski pair,math.GT math.SG
+2611.10532,2026-11-07,An exact Kähler form on $(\mathbb C^*)^2$ without a global SYZ fibration,math.SG math.DG
+2611.11171,2026-11-08,Local study of generic dynamical systems on the b-symplectic plane,math.DS math.DG math.SG
+2611.11660,2026-11-08,On sinks and mirrors,math.SG math.AG math.CO math.RT
+2611.12751,2026-11-09,Functorial Homological Mirror Symmetry for Acyclic Cluster Varieties,math.AG math.CO math.RT math.SG
+2611.12821,2026-11-09,"Hamiltonian Cotangent Deformations of Space Forms: Curvature Pinching, Soliton Rigidity, Conjugate Loci, and Superintegrability",math.DG math.DS math.SG
+2611.12828,2026-11-09,Hamiltonian Cotangent Deformations and Closed-Form Geodesics on Non-Naturally Reductive Orbit Spheres: The Spin(9) 15-Sphere and the Cayley Plane,math.DG math.DS math.SG
