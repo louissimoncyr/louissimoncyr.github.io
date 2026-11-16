@@ -10567,7 +10567,7 @@ id,published,title,categories
 2611.12828,2026-11-09,Hamiltonian Cotangent Deformations and Closed-Form Geodesics on Non-Naturally Reductive Orbit Spheres: The Spin(9) 15-Sphere and the Cayley Plane,math.DG math.DS math.SG
 2611.13119,2026-11-09,Linearized contact homology and closed Reeb orbits on prequantization bundles,math.SG
 2611.14020,2026-11-10,Hamiltonian GKM spaces via Gromov-Witten theory,math.SG math.AG
-2611.14090,2026-11-10,Equivariant Quantisation of Hypertoric Varieties via Symplectic Cuts,math.SG
+2611.14090,2026-11-10,Equivariant Quantisation of Hypertoric Varieties via Symplectic Cuts,math.SG math.AG
 2611.14110,2026-11-10,Loops and mirrors,math.AG math.SG
 2611.14310,2026-11-10,Examples of homological mirror symmetry via Zariski descent,math.SG
 2611.14352,2026-11-10,The Symplectic Nature of Noncentral Reducible Stratum in SU(2) Character Variety,math.SG
@@ -10582,3 +10582,6 @@ id,published,title,categories
 2611.16625,2026-11-12,On compact homogeneous Locally conformal symplectic manifolds,math.DG math.SG
 2611.17155,2026-11-12,Algebraic and geometric aspects of Demazure weaves,math.SG math.CO math.GT math.RT
 2611.17282,2026-11-12,Toward the abelian category of positive Lagrangians,math.SG hep-th math.AG
+2611.17542,2026-11-12,On the Hofer-Zehnder conjecture for Reeb flows without symmetry,math.SG math.DS
+2611.17594,2026-11-12,Homotopy type of equivariant embeddings,math.SG
+2611.17783,2026-11-13,Entire curves in surface bundles over tori,math.SG
